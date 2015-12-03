@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ 
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	<definition name="master.definition" template="/jsps/layouts/masterLayout.jsp">
+		<put-attribute name="header" value="/jsps/layouts/header.jsp" cascade="true" />
+		<put-attribute name="navigationBar" value="/jsps/layouts/navigationBar.jsp" cascade="true" />
+		<put-attribute name="sideBar" value="/jsps/layouts/sideBar.jsp" cascade="true" />
+		<put-attribute name="footer" value="/jsps/layouts/footer.jsp" cascade="true" />
+	</definition>
+
+	<definition name="*" extends="master.definition">
+		<put-attribute name="content" value="/jsps/pages/{1}.jsp" />
+		<put-attribute name="title" value="Home Owners Quote" />
+	</definition>
+</tiles-definitions>
