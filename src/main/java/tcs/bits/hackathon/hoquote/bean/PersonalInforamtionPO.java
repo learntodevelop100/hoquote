@@ -1,13 +1,22 @@
 package tcs.bits.hackathon.hoquote.bean;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class PersonalInforamtionPO extends HOQAbstractBean {
 	
+	@NotEmpty
 	private String firstName;
+	@NotEmpty
 	private String lastName;
+	@NotEmpty
 	private String dob;
+	@NotEmpty
 	private String streetAddress;
+	@NotEmpty
 	private String city;
+	@NotEmpty
 	private String state;
+	@NotEmpty
 	private String zipCode;
 	
 	public String getFirstName() {

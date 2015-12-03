@@ -14,9 +14,13 @@
     <!-- Uncomment and add your base-package here:
          <context:component-scan
             base-package="org.springframework.samples.service"/>  -->
-	<context:component-scan base-package="tcs.bits.hackathon.hoquote" /> 
-	
+	<context:component-scan base-package="tcs.bits.hackathon.hoquote" />
+
 	<bean id="sessionBean" class="tcs.bits.hackathon.hoquote.bean.HOQSessionBean" scope="session">
 		<aop:scoped-proxy/>
+	</bean>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="/WEB-INF/messages" />
 	</bean>
 </beans>

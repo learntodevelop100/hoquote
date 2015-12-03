@@ -1,69 +1,33 @@
-<%@include file="../includes/taglib.jsp" %>
+<%@include file="../includes/taglib.jsp"%>
 
 <div class="pageContent">
 	<h4 class="pageHeading">Customer Information</h4>
 	<div class="contentRow">
-		<div class="rowLeft">
-			<label>First Name</label>
-		</div>
-		<div class="rowRight">
-			<form:input path="firstName"/>
-		</div>
-		<hr/>
+		<hoq:rowLeft label="First Name"/>
+		<hoq:inputRowRight path="firstName"/>
 	</div>
 	<div class="contentRow">
-		<div class="rowLeft">
-			<label>Last Name</label>
-		</div>
-		<div class="rowRight">
-			<form:input path="lastName"/>
-		</div>
-		<hr/>
+		<hoq:rowLeft label="Last Name"/>
+		<hoq:inputRowRight path="lastName"/>
 	</div>
 	<div class="contentRow">
-		<div class="rowLeft">
-			<label>Date of Birth</label>
-		</div>
-		<div class="rowRight">
-			<form:input path="dob"/>
-		</div>
-		<hr/>
+		<hoq:rowLeft label="Date Of Birth"/>
+		<hoq:inputRowRight path="dob"/>
 	</div>	
 	<div class="contentRow">
-		<div class="rowLeft">
-			<label>Street Address</label>
-		</div>
-		<div class="rowRight">
-			<form:input path="streetAddress"/>
-		</div>
-		<hr/>
+		<hoq:rowLeft label="Street Address"/>
+		<hoq:inputRowRight path="streetAddress" />
 	</div>
 	<div class="contentRow">
-		<div class="rowLeft">
-			<label>City</label>
-		</div>
-		<div class="rowRight">
-			<form:input path="city"/>
-		</div>
-		<hr/>
+		<hoq:rowLeft label="City"/>
+		<hoq:inputRowRight path="city" />
 	</div>
 	<div class="contentRow">
-		<div class="rowLeft">
-			<label>State</label>
-		</div>
-		<div class="rowRight">
-			<form:input path="state"/>
-		</div>
-		<hr/>
+		<hoq:rowLeft label="State"/>
+		<hoq:inputRowRight path="state" />
 	</div>
 	<div class="contentRow">
-		<div class="rowLeft">
-			<label>Zip Code</label>
-		</div>
-		<div class="rowRight">
-			<form:input path="zipCode"/>
-		</div>
-		<hr/>
+		<hoq:rowLeft label="Zip Code"/>
+		<hoq:inputRowRight path="zipCode" />
 	</div>
 </div>    
-		

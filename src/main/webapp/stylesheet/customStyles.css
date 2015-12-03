@@ -94,3 +94,8 @@ body {
 	border-radius: 10px; /* future proofing */
 	-khtml-border-radius: 10px; /* for old Konqueror browsers */
 }
+
+.error {
+	color: red;
+	font-weight: bold;
+}
