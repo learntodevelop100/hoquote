@@ -72,7 +72,7 @@ body {
 }
 .rowLeft {
 	display: inline-block;
-	width: 50%;
+	width: 40%;
 }
 
 .rowRight{
@@ -98,4 +98,20 @@ body {
 .error {
 	color: red;
 	font-weight: bold;
+	display: block;
+	padding-left: 41%;
+}
+/* Media Query for screen size less than 580px */
+@media only screen and (max-width: 580px) {
+	#navigationHeader ul li:not(.has-sub), #sideBar_wrapper {
+		display: none;		
+	}
+	#pageContent_Wrapper {
+		width: 100%;
+	}
+	#mainContent_wrapper {
+		width: 100%;
+		margin-left: 0;
+		margin-right: 0;	
+	}
 }

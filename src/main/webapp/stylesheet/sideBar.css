@@ -16,6 +16,7 @@
 #contactModule p, #quoteModule p{
 	padding-left: 10%;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	font-size: 1vw;
 }
 
 #quoteModule {
@@ -35,7 +36,7 @@
 
 .moduleHeading {
 	font-family: 'Oxygen Mono', Tahoma, Arial, sans-serif !important;
-	font-size: medium;
+	font-size: 1.1vw;
     font-weight: bold;
     color: #154995;
     padding-left: 6%;

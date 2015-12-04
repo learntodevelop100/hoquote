@@ -18,7 +18,7 @@
   z-index: 597;
 }
 #navigationHeader ul li {
-  float: left;
+  float: right;
   min-height: 1px;
   vertical-align: middle;
 }
@@ -79,9 +79,6 @@
   content: '';
   display: block;
   clear: both;
-}
-#navigationHeader ul li {
-  float: right;
 }
 #navigationHeader ul ul {
   border-top: 4px solid #1b9bff;
@@ -144,7 +141,6 @@
   margin-left: 5px;
 }
 #navigationHeader ul li.has-sub {
-  width: 19.5%;
   float: left;
 }
 #navigationHeader ul li.has-sub a {
