@@ -4,7 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,16 +11,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import tcs.bits.hackathon.hoquote.bean.HOQSessionBean;
 import tcs.bits.hackathon.hoquote.bean.PersonalInforamtionPO;
 import tcs.bits.hackathon.hoquote.constants.NavigationConstants;
 
 @Controller
 @RequestMapping(NavigationConstants.PERSONAL_INFORMATION)
 public class PersonalInformationController extends HOQAbstractController<PersonalInforamtionPO> {
-
-	@Autowired
-	private HOQSessionBean sessionBean;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String onLoad(Model model, HttpServletRequest request, HttpServletResponse response) {
@@ -39,12 +34,12 @@ public class PersonalInformationController extends HOQAbstractController<Persona
 
 	@RequestMapping(method = RequestMethod.POST)
 	public String onContinue(Model model, @Valid @ModelAttribute("screenPO") PersonalInforamtionPO personalInforamtionPO,
-			BindingResult bindingResult) {
-		if (bindingResult.hasErrors()) {
+			BindingResult result) {
+		if (result.hasErrors()) {
 			return NavigationConstants.PERSONAL_INFORMATION_SCREEN;
 		}
 		sessionBean.setPersonalInforamtionPO(personalInforamtionPO);
-		return NavigationConstants.REDIRECT_POLICY_INFORMATION;
+		return NavigationConstants.REDIRECT_CURRENT_INSURANCE;
 	}
 
 }

@@ -8,6 +8,7 @@ body {
 #mainContent_wrapper {
     border-color: black;
     width: 90%;
+    height: 96%;
     background: #fff;
     position: absolute;
     margin-left: 4%;
@@ -15,7 +16,7 @@ body {
 }
 
 #pageAndSideBar_Wrapper {
-	width: 100%;
+	width: 98%;
 	display: inline-block;
 }
 
@@ -111,7 +112,15 @@ body {
 	}
 	#mainContent_wrapper {
 		width: 100%;
+		height: 96%;
+  		position: inherit;
 		margin-left: 0;
 		margin-right: 0;	
+	}
+	#sideBar_wrapper {
+		position: relative;
+		display: block;
+		clear: both;
+		width: 100%
 	}
 }

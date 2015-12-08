@@ -30,4 +30,12 @@
 		<hoq:rowLeft label="Zip Code"/>
 		<hoq:inputRowRight path="zipCode" />
 	</div>
+		<div class="contentRow">
+		<hoq:rowLeft label="Email ID"/>
+		<hoq:inputRowRight path="email" />
+	</div>
+		<div class="contentRow">
+		<hoq:rowLeft label="Phone No."/>
+		<hoq:inputRowRight path="phoneNumber" />
+	</div>
 </div>    

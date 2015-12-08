@@ -4,11 +4,14 @@ public interface NavigationConstants {
 	
 	public String PERSONAL_INFORMATION = "/personalInformation";
 	public String PERSONAL_INFORMATION_SCREEN = "personalInformation";
-	public String REDIRECT_POLICY_INFORMATION = "redirect:/policyInformation";
+	public String REDIRECT_CURRENT_INSURANCE = "redirect:/currentInsurance";
 	
 	
-	public String POLICY_INFORMATION = "/policyInformation";
-	public String POLICY_INFORMATION_SCREEN = "policyInformation";
+	public String CURRENT_INSURANCE = "/currentInsurance";
+	public String CURRENT_INSURANCE_SCREEN = "currentInsurance";
+	public String REDIRECT_CLAIM_LOSS = "redirect:/claimOrLoss";
 
-
+	public String CLAIM_LOSS = "/claimOrLoss";
+	public String CLAIM_LOSS_SCREEN = "claimOrLoss";
+	public String REDIRECT_PROPERTY_DETAILS = "redirect:/propertyDetails";
 }

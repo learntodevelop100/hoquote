@@ -41,3 +41,15 @@
     color: #154995;
     padding-left: 6%;
 }
+
+/* Media Query for screen size less than 580px */
+@media only screen and (max-width: 580px) {
+	#contactModule p, #quoteModule p, .moduleHeading {
+		font-size: 14px;
+	}
+	#contactModule, #quoteModule {
+		margin-left: 0;
+		margin-right: 0;
+		width: 100%
+	}
+}

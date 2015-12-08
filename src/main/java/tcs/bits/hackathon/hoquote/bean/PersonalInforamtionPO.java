@@ -1,23 +1,40 @@
 package tcs.bits.hackathon.hoquote.bean;
 
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 public class PersonalInforamtionPO extends HOQAbstractBean {
 	
 	@NotEmpty
 	private String firstName;
+	
 	@NotEmpty
 	private String lastName;
+	
 	@NotEmpty
 	private String dob;
+	
 	@NotEmpty
 	private String streetAddress;
+	
 	@NotEmpty
 	private String city;
+	
 	@NotEmpty
 	private String state;
+	
 	@NotEmpty
 	private String zipCode;
+	
+	@NotEmpty
+	@Email
+	private String email;
+	
+	@NotEmpty
+	@Pattern(regexp="(^$|[0-9]{10})")
+	private String phoneNumber;
 	
 	public String getFirstName() {
 		return firstName;
@@ -60,5 +77,17 @@ public class PersonalInforamtionPO extends HOQAbstractBean {
 	}
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 }
