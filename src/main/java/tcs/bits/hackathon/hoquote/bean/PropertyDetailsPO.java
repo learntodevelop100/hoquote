@@ -1,0 +1,52 @@
+package tcs.bits.hackathon.hoquote.bean;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
+public class PropertyDetailsPO extends HOQAbstractBean{
+	
+	@NotEmpty
+	private String currentInsuranceIndicator;
+	
+	@NotEmpty
+	private String currentInsuranceCompany;
+	
+	@NotEmpty
+	private String currentPolicyExpiration;
+	
+	@NotEmpty
+	private String claimOrLossIndicator;
+
+	public String getCurrentInsuranceIndicator() {
+		return currentInsuranceIndicator;
+	}
+
+	public void setCurrentInsuranceIndicator(String currentInsuranceIndicator) {
+		this.currentInsuranceIndicator = currentInsuranceIndicator;
+	}
+
+	public String getCurrentInsuranceCompany() {
+		return currentInsuranceCompany;
+	}
+
+	public void setCurrentInsuranceCompany(String currentInsuranceCompany) {
+		this.currentInsuranceCompany = currentInsuranceCompany;
+	}
+
+	public String getCurrentPolicyExpiration() {
+		return currentPolicyExpiration;
+	}
+
+	public void setCurrentPolicyExpiration(String currentPolicyExpiration) {
+		this.currentPolicyExpiration = currentPolicyExpiration;
+	}
+
+	public String getClaimOrLossIndicator() {
+		return claimOrLossIndicator;
+	}
+
+	public void setClaimOrLossIndicator(String claimOrLossIndicator) {
+		this.claimOrLossIndicator = claimOrLossIndicator;
+	}
+
+	
+}
