@@ -14,4 +14,8 @@ public interface NavigationConstants {
 	public String CLAIM_LOSS = "/claimOrLoss";
 	public String CLAIM_LOSS_SCREEN = "claimOrLoss";
 	public String REDIRECT_PROPERTY_DETAILS = "redirect:/propertyDetails";
+	
+	public String PROPERTY_DETAILS = "/propertyDetails";
+	public String PROPERTY_DETAILS_SCREEN = "propertyDetails";
+	public String REDIRECT_THANK_YOU = "/thankYou";
 }

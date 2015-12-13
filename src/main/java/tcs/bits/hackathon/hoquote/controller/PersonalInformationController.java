@@ -35,10 +35,10 @@ public class PersonalInformationController extends HOQAbstractController<Persona
 	@RequestMapping(method = RequestMethod.POST)
 	public String onContinue(Model model, @Valid @ModelAttribute("screenPO") PersonalInforamtionPO personalInforamtionPO,
 			BindingResult result) {
+		sessionBean.setPersonalInforamtionPO(personalInforamtionPO);
 		if (result.hasErrors()) {
 			return NavigationConstants.PERSONAL_INFORMATION_SCREEN;
 		}
-		sessionBean.setPersonalInforamtionPO(personalInforamtionPO);
 		return NavigationConstants.REDIRECT_CURRENT_INSURANCE;
 	}
 

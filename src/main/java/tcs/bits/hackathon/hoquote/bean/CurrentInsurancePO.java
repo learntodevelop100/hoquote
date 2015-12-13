@@ -5,28 +5,28 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class CurrentInsurancePO extends HOQAbstractBean{
 	
 	@NotEmpty
-	private String priorInsurance;
+	private String currentInsuranceIndicator;
 	
-	private String currentInsurer;
+	private String currentInsuranceCompany;
 	
 	private String currentPolicyExpiration;
 	
-	private String claimInLastFiveYears;
+	private String claimOrLossIndicator;
 
-	public String getPriorInsurance() {
-		return priorInsurance;
+	public String getCurrentInsuranceIndicator() {
+		return currentInsuranceIndicator;
 	}
 
-	public void setPriorInsurance(String priorInsurance) {
-		this.priorInsurance = priorInsurance;
+	public void setCurrentInsuranceIndicator(String currentInsuranceIndicator) {
+		this.currentInsuranceIndicator = currentInsuranceIndicator;
 	}
 
-	public String getCurrentInsurer() {
-		return currentInsurer;
+	public String getCurrentInsuranceCompany() {
+		return currentInsuranceCompany;
 	}
 
-	public void setCurrentInsurer(String currentInsurer) {
-		this.currentInsurer = currentInsurer;
+	public void setCurrentInsuranceCompany(String currentInsuranceCompany) {
+		this.currentInsuranceCompany = currentInsuranceCompany;
 	}
 
 	public String getCurrentPolicyExpiration() {
@@ -37,12 +37,13 @@ public class CurrentInsurancePO extends HOQAbstractBean{
 		this.currentPolicyExpiration = currentPolicyExpiration;
 	}
 
-	public String getClaimInLastFiveYears() {
-		return claimInLastFiveYears;
+	public String getClaimOrLossIndicator() {
+		return claimOrLossIndicator;
 	}
 
-	public void setClaimInLastFiveYears(String claimInLastFiveYears) {
-		this.claimInLastFiveYears = claimInLastFiveYears;
+	public void setClaimOrLossIndicator(String claimOrLossIndicator) {
+		this.claimOrLossIndicator = claimOrLossIndicator;
 	}
 
+	
 }

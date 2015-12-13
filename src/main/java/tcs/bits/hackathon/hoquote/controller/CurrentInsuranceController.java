@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import tcs.bits.hackathon.hoquote.bean.CurrentInsurancePO;
+import tcs.bits.hackathon.hoquote.constants.HOQConstants;
 import tcs.bits.hackathon.hoquote.constants.NavigationConstants;
 
 @Controller
@@ -27,10 +28,14 @@ public class CurrentInsuranceController extends HOQAbstractController<CurrentIns
 	@RequestMapping(method = RequestMethod.POST)
 	public String onContinue(Model model, @Valid @ModelAttribute("screenPO") CurrentInsurancePO currentInsurancePO,
 			BindingResult result) {
+		sessionBean.setCurrentInsurancePO(currentInsurancePO);
 		if(result.hasErrors()) {
 			return NavigationConstants.CURRENT_INSURANCE_SCREEN;
 		}
-		return NavigationConstants.CURRENT_INSURANCE_SCREEN;
+		if(HOQConstants.YES.equalsIgnoreCase(currentInsurancePO.getClaimOrLossIndicator())) {
+			return NavigationConstants.REDIRECT_CLAIM_LOSS;
+		}
+		return NavigationConstants.REDIRECT_PROPERTY_DETAILS;
 	}
 
 }

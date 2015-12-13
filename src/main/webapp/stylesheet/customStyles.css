@@ -8,7 +8,6 @@ body {
 #mainContent_wrapper {
     border-color: black;
     width: 90%;
-    height: 96%;
     background: #fff;
     position: absolute;
     margin-left: 4%;
@@ -102,6 +101,26 @@ body {
 	display: block;
 	padding-left: 41%;
 }
+
+.leftError {
+	color: red;
+	font-weight: bold;
+	display: block;
+}
+
+.errorblock {
+	font-weight: bold;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	background-color: #ffEEEE;
+	border: 3px solid #ff0000;
+	padding: 8px;
+	margin: 16px;
+}
+
+label[for] {
+	font-weight: normal;
+}
+
 /* Media Query for screen size less than 580px */
 @media only screen and (max-width: 580px) {
 	#navigationHeader ul li:not(.has-sub), #sideBar_wrapper {

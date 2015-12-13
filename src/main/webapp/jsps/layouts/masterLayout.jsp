@@ -22,6 +22,14 @@
 	</div>
 	<div id="mainContent_wrapper">
 		<form:form id="hoqFormId" name="hoqForm" action="" method="post" commandName="screenPO">
+			<c:set var="validationErrors">
+				<form:errors path="*" />
+			</c:set>
+			<c:if test="${not empty validationErrors}"> 
+				<div id="pageErrors" class="errorblock">
+					Please answer the required fields to continue.
+				</div>
+			</c:if>
 			<div id="pageAndSideBar_Wrapper">
 				<div id="pageContent_Wrapper">
 					<tiles:insertAttribute name="content" />
@@ -35,15 +43,11 @@
 					<tiles:insertAttribute name="sideBar" />
 				</div>
 			</div>
-			<!-- <div id="navgationButton_Wrapper">
-				<div class="navigationButtonRow">
-					<button id="continueButtonId">Continue</button>
-				</div>
-			</div> -->
 		</form:form>
 	</div>
 	<div id="footer_wrapper">
 		<tiles:insertAttribute name="footer" />
+		<tiles:insertAttribute name="page_Footer" ignore="true"/>
 	</div>
 </body>
 </html>
