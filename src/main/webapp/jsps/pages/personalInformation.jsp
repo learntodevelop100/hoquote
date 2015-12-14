@@ -12,7 +12,7 @@
 	</div>
 	<div class="contentRow">
 		<hoq:rowLeft label="Date Of Birth"/>
-		<hoq:inputRowRight path="dob"/>
+		<hoq:inputRowRight path="dob" placeHolder="MM/DD/YYYY"/>
 	</div>	
 	<div class="contentRow">
 		<hoq:rowLeft label="Street Address"/>
