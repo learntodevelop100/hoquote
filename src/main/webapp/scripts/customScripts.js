@@ -16,16 +16,19 @@ hoq.navigation = {};
 hoq.currentInsurance = {};
 (function(module, $, undefined) {
 	module().init = function() {
-		$("#currentInsuranceDetailsId").hide();
+		module()._hideShow();
 		module()._bindEvents();
 	}
 	module()._bindEvents = function() {
-		$("#currentInsuranceIndicator").change(function() {
-			if(this.value == "1") {
-				$("#currentInsuranceDetailsId").show();
-			}else {
-				$("#currentInsuranceDetailsId").hide();
-			}
-		});
+		$("#currentInsuranceIndicator").change(module()._hideShow);
 	}
+	module()._hideShow = function() {
+		if($("#currentInsuranceIndicator").val() == "1") {
+			$("#currentInsuranceDetailsId").show();
+		}else {
+			$("#currentInsuranceDetailsId").hide();
+			$("[name='claimOrLossIndicator']").val("")
+		}
+	}
+
 })(function(){return hoq.currentInsurance;},jQuery);
