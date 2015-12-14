@@ -95,6 +95,7 @@
 		<div>
 			<form:select path="nonJuvenile">
 				<form:option value="">-Select-</form:option>
+				<form:option value="0">None</form:option>
 				<form:option value="1">1</form:option>
 				<form:option value="2">2</form:option>
 				<form:option value="3">3</form:option>
@@ -114,6 +115,7 @@
 		<div>
 			<form:select path="noOfSmokers">
 				<form:option value="">-Select-</form:option>
+				<form:option value="0">None</form:option>
 				<form:option value="1">1</form:option>
 				<form:option value="2">2</form:option>
 				<form:option value="3">3</form:option>
