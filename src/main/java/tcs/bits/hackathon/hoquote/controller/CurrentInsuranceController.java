@@ -2,6 +2,8 @@ package tcs.bits.hackathon.hoquote.controller;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -32,6 +34,8 @@ public class CurrentInsuranceController extends HOQAbstractController<CurrentIns
 		if(result.hasErrors()) {
 			return NavigationConstants.CURRENT_INSURANCE_SCREEN;
 		}
+		Logger logger = LoggerFactory.getLogger(CurrentInsuranceController.class);
+		logger.info(getJsonObject());
 		if(HOQConstants.YES.equalsIgnoreCase(currentInsurancePO.getClaimOrLossIndicator())) {
 			return NavigationConstants.REDIRECT_CLAIM_LOSS;
 		}

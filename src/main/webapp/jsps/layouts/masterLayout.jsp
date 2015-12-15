@@ -27,7 +27,7 @@
 			</c:set>
 			<c:if test="${not empty validationErrors}"> 
 				<div id="pageErrors" class="errorblock">
-					Please answer the required fields to continue.
+					Please answer all the required fields to continue.
 				</div>
 			</c:if>
 			<div id="pageAndSideBar_Wrapper">

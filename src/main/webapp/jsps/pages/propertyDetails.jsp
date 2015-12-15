@@ -139,5 +139,6 @@
 		</div>
 		<hr />
 	</div>
+	<jsp:include page="homeDetails.jsp"/>
 </div>
 

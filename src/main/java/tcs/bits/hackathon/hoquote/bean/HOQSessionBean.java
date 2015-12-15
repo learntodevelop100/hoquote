@@ -9,7 +9,7 @@ public class HOQSessionBean {
 	private ClaimOrLossPO claimOrLossPO;
 	
 	private PropertyDetailsPO propertyDetailsPO;
-
+	
 	public PersonalInforamtionPO getPersonalInforamtionPO() {
 		return personalInforamtionPO;
 	}

@@ -30,6 +30,31 @@ public class PropertyDetailsPO extends HOQAbstractBean{
 	
 	@NotEmpty
 	private String petIndicator;
+	
+	@NotEmpty
+	private String typeOfHome;
+	
+	@NotEmpty
+	private String styleOfHome;
+	
+	@NotEmpty
+	private String yearRoofInstalled;
+	
+	@NotEmpty
+	private String roofMaterial;
+	
+	@NotEmpty
+	private String sqftOfHome;
+	
+	@Override
+	public String toString() {
+		return "PropertyDetails [effectiveDate=" + effectiveDate + ", mortgagePayment=" + mortgagePayment
+				+ ", yearOfPurchase=" + yearOfPurchase + ", yearBuilt=" + yearBuilt + ", homeDescription="
+				+ homeDescription + ", noOfPeople=" + noOfPeople + ", nonJuvenile=" + nonJuvenile + ", noOfSmokers="
+				+ noOfSmokers + ", petIndicator=" + petIndicator + ", typeOfHome=" + typeOfHome + ", styleOfHome="
+				+ styleOfHome + ", yearRoofInstalled=" + yearRoofInstalled + ", roofMaterial=" + roofMaterial
+				+ ", sqftOfHome=" + sqftOfHome + "]";
+	}
 
 	public String getEffectiveDate() {
 		return effectiveDate;
@@ -101,6 +126,46 @@ public class PropertyDetailsPO extends HOQAbstractBean{
 
 	public void setPetIndicator(String petIndicator) {
 		this.petIndicator = petIndicator;
+	}
+
+	public String getTypeOfHome() {
+		return typeOfHome;
+	}
+
+	public void setTypeOfHome(String typeOfHome) {
+		this.typeOfHome = typeOfHome;
+	}
+
+	public String getStyleOfHome() {
+		return styleOfHome;
+	}
+
+	public void setStyleOfHome(String styleOfHome) {
+		this.styleOfHome = styleOfHome;
+	}
+
+	public String getYearRoofInstalled() {
+		return yearRoofInstalled;
+	}
+
+	public void setYearRoofInstalled(String yearRoofInstalled) {
+		this.yearRoofInstalled = yearRoofInstalled;
+	}
+
+	public String getRoofMaterial() {
+		return roofMaterial;
+	}
+
+	public void setRoofMaterial(String roofMaterial) {
+		this.roofMaterial = roofMaterial;
+	}
+
+	public String getSqftOfHome() {
+		return sqftOfHome;
+	}
+
+	public void setSqftOfHome(String sqftOfHome) {
+		this.sqftOfHome = sqftOfHome;
 	}
 	
 }

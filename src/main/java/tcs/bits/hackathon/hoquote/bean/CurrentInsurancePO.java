@@ -2,16 +2,23 @@ package tcs.bits.hackathon.hoquote.bean;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-public class CurrentInsurancePO extends HOQAbstractBean{
-	
+public class CurrentInsurancePO extends HOQAbstractBean {
+
 	@NotEmpty
 	private String currentInsuranceIndicator;
-	
+
 	private String currentInsuranceCompany;
-	
+
 	private String currentPolicyExpiration;
-	
+
 	private String claimOrLossIndicator;
+
+	@Override
+	public String toString() {
+		return "CurrentInsurance [currentInsuranceIndicator=" + currentInsuranceIndicator
+				+ ", currentInsuranceCompany=" + currentInsuranceCompany + ", currentPolicyExpiration="
+				+ currentPolicyExpiration + ", claimOrLossIndicator=" + claimOrLossIndicator + "]";
+	}
 
 	public String getCurrentInsuranceIndicator() {
 		return currentInsuranceIndicator;
@@ -45,5 +52,4 @@ public class CurrentInsurancePO extends HOQAbstractBean{
 		this.claimOrLossIndicator = claimOrLossIndicator;
 	}
 
-	
 }

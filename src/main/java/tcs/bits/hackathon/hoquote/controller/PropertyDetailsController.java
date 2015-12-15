@@ -2,6 +2,8 @@ package tcs.bits.hackathon.hoquote.controller;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -31,6 +33,8 @@ public class PropertyDetailsController extends HOQAbstractController<PropertyDet
 		if(result.hasErrors()) {
 			return NavigationConstants.PROPERTY_DETAILS_SCREEN;
 		}
+		Logger logger = LoggerFactory.getLogger(PropertyDetailsController.class);
+		logger.info(getJsonObject());
 		return NavigationConstants.PROPERTY_DETAILS_SCREEN;
 	}
 

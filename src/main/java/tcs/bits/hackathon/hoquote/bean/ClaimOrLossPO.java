@@ -2,17 +2,23 @@ package tcs.bits.hackathon.hoquote.bean;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-public class ClaimOrLossPO extends HOQAbstractBean{
-	
+public class ClaimOrLossPO extends HOQAbstractBean {
+
 	@NotEmpty
 	private String typeOfLoss;
-	
+
 	@NotEmpty
 	private String yearOfLoss;
-	
+
 	@NotEmpty
 	private String lossAmount;
-	
+
+	@Override
+	public String toString() {
+		return "ClaimOrLoss [typeOfLoss=" + typeOfLoss + ", yearOfLoss=" + yearOfLoss + ", lossAmount=" + lossAmount
+				+ "]";
+	}
+
 	public String getTypeOfLoss() {
 		return typeOfLoss;
 	}

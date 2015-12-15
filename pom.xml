@@ -109,6 +109,14 @@
 			<artifactId>tiles-extras</artifactId>
 			<version>${tiles.version}</version>
 		</dependency>
+
+		<!-- GSON Java to JSON and vice versa -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>1.7.1</version>
+		</dependency>
+		
 		<!-- Test Artifacts -->
 		<dependency>
 			<groupId>org.springframework</groupId>
