@@ -1,7 +1,7 @@
 <%@include file="../includes/taglib.jsp"%>
 
 <div class="pageContent">
-	<h4 class="pageHeading">Current Insurance Details</h4>
+	<h4 class="pageHeading">Current Insurance Information</h4>
 	<div class="contentRow">
 		<div>
 			<label>Do You have Home Insurance at current residence?</label>

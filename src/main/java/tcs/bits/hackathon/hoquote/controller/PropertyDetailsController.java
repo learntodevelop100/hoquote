@@ -2,8 +2,6 @@ package tcs.bits.hackathon.hoquote.controller;
 
 import javax.validation.Valid;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,6 +16,11 @@ import tcs.bits.hackathon.hoquote.constants.NavigationConstants;
 @RequestMapping(NavigationConstants.PROPERTY_DETAILS)
 public class PropertyDetailsController extends HOQAbstractController<PropertyDetailsPO> {
 
+	@Override
+	protected String getPageName() {
+		return "Property Details";
+	}
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public String onLoad(Model model) {
 		PropertyDetailsPO propertyDetailsPO = (null != sessionBean.getPropertyDetailsPO())
@@ -33,8 +36,8 @@ public class PropertyDetailsController extends HOQAbstractController<PropertyDet
 		if(result.hasErrors()) {
 			return NavigationConstants.PROPERTY_DETAILS_SCREEN;
 		}
-		Logger logger = LoggerFactory.getLogger(PropertyDetailsController.class);
-		logger.info(getJsonObject());
+		buildEventHeaders(propertyDetailsPO, "CQ");
+		sendEvent(propertyDetailsPO);
 		return NavigationConstants.PROPERTY_DETAILS_SCREEN;
 	}
 

@@ -2,8 +2,6 @@ package tcs.bits.hackathon.hoquote.controller;
 
 import javax.validation.Valid;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,6 +17,11 @@ import tcs.bits.hackathon.hoquote.constants.NavigationConstants;
 @RequestMapping(NavigationConstants.CURRENT_INSURANCE)
 public class CurrentInsuranceController extends HOQAbstractController<CurrentInsurancePO> {
 
+	@Override
+	protected String getPageName() {
+		return "Current Insurance Information";
+	}
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public String onLoad(Model model) {
 		CurrentInsurancePO currentInsurancePO = (null != sessionBean.getCurrentInsurancePO())
@@ -34,8 +37,6 @@ public class CurrentInsuranceController extends HOQAbstractController<CurrentIns
 		if(result.hasErrors()) {
 			return NavigationConstants.CURRENT_INSURANCE_SCREEN;
 		}
-		Logger logger = LoggerFactory.getLogger(CurrentInsuranceController.class);
-		logger.info(getJsonObject());
 		if(HOQConstants.YES.equalsIgnoreCase(currentInsurancePO.getClaimOrLossIndicator())) {
 			return NavigationConstants.REDIRECT_CLAIM_LOSS;
 		}

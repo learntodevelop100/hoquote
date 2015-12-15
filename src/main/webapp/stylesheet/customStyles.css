@@ -85,7 +85,7 @@ body {
 	height: 30px;
     float: right;
     margin-right: 10%;
-    width: auto;
+    width: 90px;
     background-color: #006dcc;
     border-color: #0c69ae;
     color: #fff;
@@ -94,6 +94,22 @@ body {
 	border-radius: 10px; /* future proofing */
 	-khtml-border-radius: 10px; /* for old Konqueror browsers */
 }
+
+#closeButtonId {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	font-weight: bold;
+	height: 30px;
+    float: left;
+    margin-left: 5%;
+    width: 90px;
+    border-color: #adadad;
+    color: #666;
+    -moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px; /* future proofing */
+	-khtml-border-radius: 10px; /* for old Konqueror browsers */
+}
+
 
 .error {
 	color: red;

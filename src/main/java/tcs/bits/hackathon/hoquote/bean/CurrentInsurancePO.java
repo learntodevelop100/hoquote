@@ -15,9 +15,10 @@ public class CurrentInsurancePO extends HOQAbstractBean {
 
 	@Override
 	public String toString() {
-		return "CurrentInsurance [currentInsuranceIndicator=" + currentInsuranceIndicator
+		return "CurrentInsurancePO [currentInsuranceIndicator=" + currentInsuranceIndicator
 				+ ", currentInsuranceCompany=" + currentInsuranceCompany + ", currentPolicyExpiration="
-				+ currentPolicyExpiration + ", claimOrLossIndicator=" + claimOrLossIndicator + "]";
+				+ currentPolicyExpiration + ", claimOrLossIndicator=" + claimOrLossIndicator + ", reqId=" + reqId
+				+ ", evtNm=" + evtNm + ", ZipCode=" + ZipCode + ", PageName=" + PageName + ", TS=" + TS + "]";
 	}
 
 	public String getCurrentInsuranceIndicator() {

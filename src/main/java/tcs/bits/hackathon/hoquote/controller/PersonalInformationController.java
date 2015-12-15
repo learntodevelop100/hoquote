@@ -4,8 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,6 +18,11 @@ import tcs.bits.hackathon.hoquote.constants.NavigationConstants;
 @RequestMapping(NavigationConstants.PERSONAL_INFORMATION)
 public class PersonalInformationController extends HOQAbstractController<PersonalInforamtionPO> {
 
+	@Override
+	protected String getPageName() {
+		return "Customer Information";
+	}
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public String onLoad(Model model, HttpServletRequest request, HttpServletResponse response) {
 
@@ -28,8 +31,12 @@ public class PersonalInformationController extends HOQAbstractController<Persona
 			personalInforamtionPO = sessionBean.getPersonalInforamtionPO();
 		} else {
 			personalInforamtionPO = new PersonalInforamtionPO();
+			sessionBean.setRequestId(getRequestId());
 			personalInforamtionPO.setState(request.getParameter("state"));
+			buildEventHeaders(personalInforamtionPO, "IQ");
+			sendEvent(personalInforamtionPO);
 		}
+		
 		model.addAttribute("screenPO", personalInforamtionPO);
 		return NavigationConstants.PERSONAL_INFORMATION_SCREEN;
 	}
@@ -41,8 +48,7 @@ public class PersonalInformationController extends HOQAbstractController<Persona
 		if (result.hasErrors()) {
 			return NavigationConstants.PERSONAL_INFORMATION_SCREEN;
 		}
-		Logger logger = LoggerFactory.getLogger(PersonalInformationController.class);
-		logger.info(getJsonObject());
+		sessionBean.setZipCode(personalInforamtionPO.getZipCode());
 		return NavigationConstants.REDIRECT_CURRENT_INSURANCE;
 	}
 }
