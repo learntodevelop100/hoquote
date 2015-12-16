@@ -4,13 +4,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,7 +17,6 @@ import com.google.gson.Gson;
 
 import tcs.bits.hackathon.hoquote.bean.HOQAbstractBean;
 import tcs.bits.hackathon.hoquote.bean.HOQSessionBean;
-import tcs.bits.hackathon.hoquote.constants.NavigationConstants;
 import tcs.bits.hackathon.hoquote.event.EventImpl;
 
 public abstract class HOQAbstractController <T extends HOQAbstractBean> {
@@ -62,11 +59,9 @@ public abstract class HOQAbstractController <T extends HOQAbstractBean> {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, params="closeEvent")
-	public final String onExit(Model model, @ModelAttribute("screenPO") T screenPO,HttpServletRequest request) {
+	public final void onExit(Model model, @ModelAttribute("screenPO") T screenPO,HttpServletRequest request) {
 		buildEventHeaders(screenPO, "EQ");
 		sendEvent(screenPO);
 		request.getSession().invalidate();
-		return NavigationConstants.REDIRECT_PERSONAL_INFORMATION;
 	}
-	
 }

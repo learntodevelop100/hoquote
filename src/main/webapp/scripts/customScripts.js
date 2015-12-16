@@ -3,25 +3,26 @@ var hoq = hoq || {};
 hoq.navigation = {};
 
 (function(module, $, undefined) {
+	var postEnabled = false;
 	module().init = function() {
+		postEnabled = false;
 		module()._bindEvents();
 	}
 	module()._bindEvents = function() {
 		$("#continueButtonId").unbind("click").click(module()._onContinue);
-		$("#closeButtonId").unbind("click").click(module()._onClose);
-		
-		module()._onContinue = function() {
-			$("form[name='hoqForm']").submit();
-		}
-		
-		module()._onClose = function() {
-			$.post("", {closeEvent:""},module()._exitWindow);
-		}
-		
-		module()._exitWindow = function() {
-			window.close();
-		}
 	}
+	module()._onContinue = function() {
+		postEnabled = true;
+		$("form[name='hoqForm']").submit();
+	}
+	
+	window.onbeforeunload = function(e) {
+		if (!postEnabled) {
+			$.post("", {closeEvent:"closeEvent"});
+			return 'All information entered will not be saved';
+		}
+	};
+	
 })(function(){return hoq.navigation;},jQuery);
 
 

@@ -29,5 +29,5 @@ public interface NavigationConstants {
 	public String THANK_YOU = "/thankYou";
 	public String THANK_YOU_SCREEN = "thankYou";
 	
-	public String REDIRECT_PERSONAL_INFORMATION = "/personalInformation";
+	public String REDIRECT_PERSONAL_INFORMATION = "redirect:/personalInformation";
 }

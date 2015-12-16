@@ -36,7 +36,6 @@
 					<div id="navgationButton_Wrapper">
 						<div class="navigationButtonRow">
 							<button id="continueButtonId">Continue</button>
-							<button id="closeButtonId">Close</button>
 						</div>
 					</div>
 				</div>
