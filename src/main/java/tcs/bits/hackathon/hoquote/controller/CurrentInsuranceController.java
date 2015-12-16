@@ -24,8 +24,7 @@ public class CurrentInsuranceController extends HOQAbstractController<CurrentIns
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String onLoad(Model model) {
-		CurrentInsurancePO currentInsurancePO = (null != sessionBean.getCurrentInsurancePO())
-				? sessionBean.getCurrentInsurancePO() : new CurrentInsurancePO();
+		CurrentInsurancePO currentInsurancePO =  new CurrentInsurancePO();
 		model.addAttribute("screenPO", currentInsurancePO);
 		return NavigationConstants.CURRENT_INSURANCE_SCREEN;
 	}
@@ -33,7 +32,7 @@ public class CurrentInsuranceController extends HOQAbstractController<CurrentIns
 	@RequestMapping(method = RequestMethod.POST)
 	public String onContinue(Model model, @Valid @ModelAttribute("screenPO") CurrentInsurancePO currentInsurancePO,
 			BindingResult result) {
-		sessionBean.setCurrentInsurancePO(currentInsurancePO);
+		copyValues(currentInsurancePO);
 		if(result.hasErrors()) {
 			return NavigationConstants.CURRENT_INSURANCE_SCREEN;
 		}

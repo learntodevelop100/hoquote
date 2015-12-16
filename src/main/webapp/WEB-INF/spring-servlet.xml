@@ -9,7 +9,6 @@
 	<context:component-scan base-package="tcs.bits.hackathon.hoquote" /> 
 	<mvc:resources location="/stylesheet/" mapping="/stylesheet/**" />
 	<mvc:resources location="/scripts/" mapping="/scripts/**" />
-    
 
     <bean id="tilesViewResolver"
      class="org.springframework.web.servlet.view.UrlBasedViewResolver">

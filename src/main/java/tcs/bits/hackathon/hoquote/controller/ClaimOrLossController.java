@@ -23,8 +23,7 @@ public class ClaimOrLossController extends HOQAbstractController<ClaimOrLossPO> 
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String onLoad(Model model) {
-		ClaimOrLossPO claimOrLossPO = (null != sessionBean.getClaimOrLossPO())
-				? sessionBean.getClaimOrLossPO() : new ClaimOrLossPO();
+		ClaimOrLossPO claimOrLossPO = new ClaimOrLossPO();
 		model.addAttribute("screenPO", claimOrLossPO);
 		return NavigationConstants.CLAIM_LOSS_SCREEN;
 	}
@@ -32,7 +31,7 @@ public class ClaimOrLossController extends HOQAbstractController<ClaimOrLossPO> 
 	@RequestMapping(method = RequestMethod.POST)
 	public String onContinue(Model model, @Valid @ModelAttribute("screenPO") ClaimOrLossPO claimOrLossPO,
 			BindingResult result) {
-		sessionBean.setClaimOrLossPO(claimOrLossPO);
+		copyValues(claimOrLossPO);
 		if(result.hasErrors()) {
 			return NavigationConstants.CLAIM_LOSS_SCREEN;
 		}

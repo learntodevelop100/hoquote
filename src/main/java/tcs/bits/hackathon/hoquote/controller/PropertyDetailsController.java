@@ -23,8 +23,7 @@ public class PropertyDetailsController extends HOQAbstractController<PropertyDet
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String onLoad(Model model) {
-		PropertyDetailsPO propertyDetailsPO = (null != sessionBean.getPropertyDetailsPO())
-				? sessionBean.getPropertyDetailsPO() : new PropertyDetailsPO();
+		PropertyDetailsPO propertyDetailsPO = new PropertyDetailsPO();
 		model.addAttribute("screenPO", propertyDetailsPO);
 		return NavigationConstants.PROPERTY_DETAILS_SCREEN;
 	}
@@ -32,12 +31,11 @@ public class PropertyDetailsController extends HOQAbstractController<PropertyDet
 	@RequestMapping(method = RequestMethod.POST)
 	public String onContinue(Model model, @Valid @ModelAttribute("screenPO") PropertyDetailsPO propertyDetailsPO,
 			BindingResult result) {
-		sessionBean.setPropertyDetailsPO(propertyDetailsPO);
+		copyValues(propertyDetailsPO);
 		if(result.hasErrors()) {
 			return NavigationConstants.PROPERTY_DETAILS_SCREEN;
 		}
-		buildEventHeaders(propertyDetailsPO, "CQ");
-		sendEvent(propertyDetailsPO);
+		sendEvent("CQ");
 		return NavigationConstants.PROPERTY_DETAILS_SCREEN;
 	}
 

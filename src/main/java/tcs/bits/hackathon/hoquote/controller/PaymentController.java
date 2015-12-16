@@ -24,8 +24,7 @@ public class PaymentController extends HOQAbstractController<PropertyDetailsPO> 
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String onLoad(Model model) {
-		PaymentPO paymentPO = (null != sessionBean.getPaymentPO())
-				? sessionBean.getPaymentPO() : new PaymentPO();
+		PaymentPO paymentPO = new PaymentPO();
 		model.addAttribute("screenPO", paymentPO);
 		return NavigationConstants.PAYMENT_SCREEN;
 	}

@@ -22,33 +22,25 @@ public class PersonalInformationController extends HOQAbstractController<Persona
 	protected String getPageName() {
 		return "Customer Information";
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET)
 	public String onLoad(Model model, HttpServletRequest request, HttpServletResponse response) {
 
-		PersonalInforamtionPO personalInforamtionPO = null;
-		if (null != sessionBean.getPersonalInforamtionPO()) {
-			personalInforamtionPO = sessionBean.getPersonalInforamtionPO();
-		} else {
-			personalInforamtionPO = new PersonalInforamtionPO();
-			sessionBean.setRequestId(getRequestId());
-			personalInforamtionPO.setState(request.getParameter("state"));
-			buildEventHeaders(personalInforamtionPO, "IQ");
-			sendEvent(personalInforamtionPO);
-		}
-		
+		PersonalInforamtionPO personalInforamtionPO = new PersonalInforamtionPO();
+		sessionBean.setReqId(getRequestId());
+		personalInforamtionPO.setState(request.getParameter("state"));
+		sendEvent("IQ");
 		model.addAttribute("screenPO", personalInforamtionPO);
 		return NavigationConstants.PERSONAL_INFORMATION_SCREEN;
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String onContinue(Model model, @Valid @ModelAttribute("screenPO") PersonalInforamtionPO personalInforamtionPO,
-			BindingResult result) {
-		sessionBean.setPersonalInforamtionPO(personalInforamtionPO);
+	public String onContinue(Model model,
+			@Valid @ModelAttribute("screenPO") PersonalInforamtionPO personalInforamtionPO, BindingResult result) {
+		copyValues(personalInforamtionPO);
 		if (result.hasErrors()) {
 			return NavigationConstants.PERSONAL_INFORMATION_SCREEN;
 		}
-		sessionBean.setZipCode(personalInforamtionPO.getZipCode());
 		return NavigationConstants.REDIRECT_CURRENT_INSURANCE;
 	}
 }

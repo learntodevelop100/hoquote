@@ -13,13 +13,6 @@ public class ClaimOrLossPO extends HOQAbstractBean {
 	@NotEmpty
 	private String lossAmount;
 
-	@Override
-	public String toString() {
-		return "ClaimOrLossPO [typeOfLoss=" + typeOfLoss + ", yearOfLoss=" + yearOfLoss + ", lossAmount=" + lossAmount
-				+ ", reqId=" + reqId + ", evtNm=" + evtNm + ", ZipCode=" + ZipCode + ", PageName=" + PageName + ", TS="
-				+ TS + "]";
-	}
-
 	public String getTypeOfLoss() {
 		return typeOfLoss;
 	}

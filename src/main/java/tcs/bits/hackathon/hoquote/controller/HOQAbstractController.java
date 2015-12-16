@@ -1,10 +1,12 @@
 package tcs.bits.hackathon.hoquote.controller;
 
+import java.lang.reflect.InvocationTargetException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +34,16 @@ public abstract class HOQAbstractController <T extends HOQAbstractBean> {
 	
 	protected abstract String getPageName();
 	
-	protected String getJsonObject(T screenPO) {
-		String jsonFormat = gson.toJson(screenPO);
+	protected String getJsonObject() {
+		HOQSessionBean bean = new HOQSessionBean();
+		try {
+			BeanUtils.copyProperties(bean, sessionBean);
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		}
+		String jsonFormat = gson.toJson(bean);
 		Logger logger = LoggerFactory.getLogger(this.getClass());
 		logger.info(jsonFormat);
 		return jsonFormat;
@@ -43,25 +53,33 @@ public abstract class HOQAbstractController <T extends HOQAbstractBean> {
 		return eventImpl.generateUUID();
 	}
 	
-	protected void sendEvent(T screenPO) {
-		getJsonObject(screenPO);
+	protected void sendEvent(String eventName) {
+		buildEventHeaders(eventName);
+		getJsonObject();
 		//eventImpl.putPropertyEvent(getJsonObject(screenPO));
 	}
 	
-	protected void buildEventHeaders(T screenPO, String eventName)  {
-		screenPO.setReqId(sessionBean.getRequestId());
-		screenPO.setEvtNm(eventName);
-		screenPO.setZipCode(sessionBean.getZipCode());
-		screenPO.setPageName(getPageName());
+	protected void copyValues(T screenPO) {
+		try {
+			BeanUtils.copyProperties(sessionBean, screenPO);
+			getJsonObject();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void buildEventHeaders(String eventName)  {
+		sessionBean.setEvtNm(eventName);
+		sessionBean.setPageName(getPageName());
 		String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSSSSSSS").format(new Date());
-		screenPO.setTS(timeStamp);
-
+		sessionBean.setTS(timeStamp);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, params="closeEvent")
 	public final void onExit(Model model, @ModelAttribute("screenPO") T screenPO,HttpServletRequest request) {
-		buildEventHeaders(screenPO, "EQ");
-		sendEvent(screenPO);
+		sendEvent("EQ");
 		request.getSession().invalidate();
 	}
 }

@@ -46,17 +46,6 @@ public class PropertyDetailsPO extends HOQAbstractBean{
 	@NotEmpty
 	private String sqftOfHome;
 	
-	@Override
-	public String toString() {
-		return "PropertyDetailsPO [effectiveDate=" + effectiveDate + ", mortgagePayment=" + mortgagePayment
-				+ ", yearOfPurchase=" + yearOfPurchase + ", yearBuilt=" + yearBuilt + ", homeDescription="
-				+ homeDescription + ", noOfPeople=" + noOfPeople + ", nonJuvenile=" + nonJuvenile + ", noOfSmokers="
-				+ noOfSmokers + ", petIndicator=" + petIndicator + ", typeOfHome=" + typeOfHome + ", styleOfHome="
-				+ styleOfHome + ", yearRoofInstalled=" + yearRoofInstalled + ", roofMaterial=" + roofMaterial
-				+ ", sqftOfHome=" + sqftOfHome + ", reqId=" + reqId + ", evtNm=" + evtNm + ", ZipCode=" + ZipCode
-				+ ", PageName=" + PageName + ", TS=" + TS + "]";
-	}
-
 	public String getEffectiveDate() {
 		return effectiveDate;
 	}
