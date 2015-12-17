@@ -19,18 +19,18 @@ public class CurrentInsuranceController extends HOQAbstractController<CurrentIns
 
 	@Override
 	protected String getPageName() {
-		return "Current Insurance Information";
+		return HOQConstants.CURRENT_INSURANCE;
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String onLoad(Model model) {
 		CurrentInsurancePO currentInsurancePO =  new CurrentInsurancePO();
-		model.addAttribute("screenPO", currentInsurancePO);
+		model.addAttribute(HOQConstants.SCREEN_PO, currentInsurancePO);
 		return NavigationConstants.CURRENT_INSURANCE_SCREEN;
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String onContinue(Model model, @Valid @ModelAttribute("screenPO") CurrentInsurancePO currentInsurancePO,
+	public String onContinue(Model model, @Valid @ModelAttribute(HOQConstants.SCREEN_PO) CurrentInsurancePO currentInsurancePO,
 			BindingResult result) {
 		copyValues(currentInsurancePO);
 		if(result.hasErrors()) {

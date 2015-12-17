@@ -1,45 +1,65 @@
 package tcs.bits.hackathon.hoquote.bean;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
 public class QuoteSummaryPO extends HOQAbstractBean {
 
-	@NotEmpty
-	private String typeOfLoss;
+	private String dwelling;
+	
+	private String otherStructures;
+	
+	private String personalPropertyCov;
+	
+	private String lossOfUse;
+	
+	private String medicalPayment;
+	
+	private String deductible;
 
-	@NotEmpty
-	private String yearOfLoss;
-
-	@NotEmpty
-	private String lossAmount;
-
-	@Override
-	public String toString() {
-		return "ClaimOrLoss [typeOfLoss=" + typeOfLoss + ", yearOfLoss=" + yearOfLoss + ", lossAmount=" + lossAmount
-				+ "]";
+	public String getDwelling() {
+		return dwelling;
 	}
 
-	public String getTypeOfLoss() {
-		return typeOfLoss;
+	public void setDwelling(String dwelling) {
+		this.dwelling = dwelling;
 	}
 
-	public void setTypeOfLoss(String typeOfLoss) {
-		this.typeOfLoss = typeOfLoss;
+	public String getOtherStructures() {
+		return otherStructures;
 	}
 
-	public String getLossAmount() {
-		return lossAmount;
+	public void setOtherStructures(String otherStructures) {
+		this.otherStructures = otherStructures;
 	}
 
-	public void setLossAmount(String lossAmount) {
-		this.lossAmount = lossAmount;
+	public String getPersonalPropertyCov() {
+		return personalPropertyCov;
 	}
 
-	public String getYearOfLoss() {
-		return yearOfLoss;
+	public void setPersonalPropertyCov(String personalPropertyCov) {
+		this.personalPropertyCov = personalPropertyCov;
 	}
 
-	public void setYearOfLoss(String yearOfLoss) {
-		this.yearOfLoss = yearOfLoss;
+	public String getLossOfUse() {
+		return lossOfUse;
 	}
+
+	public void setLossOfUse(String lossOfUse) {
+		this.lossOfUse = lossOfUse;
+	}
+
+	public String getMedicalPayment() {
+		return medicalPayment;
+	}
+
+	public void setMedicalPayment(String medicalPayment) {
+		this.medicalPayment = medicalPayment;
+	}
+
+	public String getDeductible() {
+		return deductible;
+	}
+
+	public void setDeductible(String deductible) {
+		this.deductible = deductible;
+	}
+	
 }

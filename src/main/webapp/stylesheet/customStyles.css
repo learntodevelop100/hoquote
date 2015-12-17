@@ -137,6 +137,24 @@ label[for] {
 	font-weight: normal;
 }
 
+/* Quote Summary */
+.coverageHeader, .coverageHeader:hover, coverageHeader:focus {
+	text-decoration: none !important;	
+	font-weight: bold;
+}
+.spanRight {
+	float: right;
+	color: #337ab7;
+	font-weight: bold;
+}
+.coverageDesc {
+	font-size: 12px;
+	margin-left: 2%;
+}
+.coverageRuler {
+	margin-bottom: 0;
+}
+
 /* Media Query for screen size less than 580px */
 @media only screen and (max-width: 580px), only screen and (max-device-width: 480px) {
 	#navigationHeader ul li:not(.has-sub), #sideBar_wrapper {

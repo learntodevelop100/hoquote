@@ -16,15 +16,15 @@ public interface NavigationConstants {
 	
 	public String PROPERTY_DETAILS = "/propertyDetails";
 	public String PROPERTY_DETAILS_SCREEN = "propertyDetails";
-	public String REDIRECT_QUOTE_SUMMARY = "/quoteSummary";
+	public String REDIRECT_QUOTE_SUMMARY = "redirect:/quoteSummary";
 	
 	public String QUOTE_SUMMARY = "/quoteSummary";
 	public String QUOTE_SUMMARY_SCREEN = "quoteSummary";
-	public String REDIRECT_PAYMENT = "/payment";
+	public String REDIRECT_PAYMENT = "redirect:/payment";
 	
 	public String PAYMENT = "/payment";
 	public String PAYMENT_SCREEN = "payment";
-	public String REDIRECT_THANK_YOU = "/thankYou";
+	public String REDIRECT_THANK_YOU = "redirect:/thankYou";
 	
 	public String THANK_YOU = "/thankYou";
 	public String THANK_YOU_SCREEN = "thankYou";

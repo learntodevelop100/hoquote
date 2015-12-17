@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import tcs.bits.hackathon.hoquote.bean.PersonalInforamtionPO;
+import tcs.bits.hackathon.hoquote.constants.HOQConstants;
 import tcs.bits.hackathon.hoquote.constants.NavigationConstants;
 
 @Controller
@@ -20,7 +21,7 @@ public class PersonalInformationController extends HOQAbstractController<Persona
 
 	@Override
 	protected String getPageName() {
-		return "Customer Information";
+		return HOQConstants.CUSTOMER_INFORMATION;
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
@@ -28,15 +29,15 @@ public class PersonalInformationController extends HOQAbstractController<Persona
 
 		PersonalInforamtionPO personalInforamtionPO = new PersonalInforamtionPO();
 		sessionBean.setReqId(getRequestId());
-		personalInforamtionPO.setState(request.getParameter("state"));
-		sendEvent("IQ");
-		model.addAttribute("screenPO", personalInforamtionPO);
+		personalInforamtionPO.setState(request.getParameter(HOQConstants.STATE));
+		sendEvent(HOQConstants.INITIATED_EVENT);
+		model.addAttribute(HOQConstants.SCREEN_PO, personalInforamtionPO);
 		return NavigationConstants.PERSONAL_INFORMATION_SCREEN;
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	public String onContinue(Model model,
-			@Valid @ModelAttribute("screenPO") PersonalInforamtionPO personalInforamtionPO, BindingResult result) {
+			@Valid @ModelAttribute(HOQConstants.SCREEN_PO) PersonalInforamtionPO personalInforamtionPO, BindingResult result) {
 		copyValues(personalInforamtionPO);
 		if (result.hasErrors()) {
 			return NavigationConstants.PERSONAL_INFORMATION_SCREEN;

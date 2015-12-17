@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import tcs.bits.hackathon.hoquote.bean.PropertyDetailsPO;
+import tcs.bits.hackathon.hoquote.constants.HOQConstants;
 import tcs.bits.hackathon.hoquote.constants.NavigationConstants;
 
 @Controller
@@ -18,25 +19,24 @@ public class PropertyDetailsController extends HOQAbstractController<PropertyDet
 
 	@Override
 	protected String getPageName() {
-		return "Property Details";
+		return HOQConstants.PROPERTY_DETAILS;
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String onLoad(Model model) {
 		PropertyDetailsPO propertyDetailsPO = new PropertyDetailsPO();
-		model.addAttribute("screenPO", propertyDetailsPO);
+		model.addAttribute(HOQConstants.SCREEN_PO, propertyDetailsPO);
 		return NavigationConstants.PROPERTY_DETAILS_SCREEN;
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String onContinue(Model model, @Valid @ModelAttribute("screenPO") PropertyDetailsPO propertyDetailsPO,
+	public String onContinue(Model model, @Valid @ModelAttribute(HOQConstants.SCREEN_PO) PropertyDetailsPO propertyDetailsPO,
 			BindingResult result) {
 		copyValues(propertyDetailsPO);
 		if(result.hasErrors()) {
 			return NavigationConstants.PROPERTY_DETAILS_SCREEN;
 		}
-		sendEvent("CQ");
-		return NavigationConstants.PROPERTY_DETAILS_SCREEN;
+		return NavigationConstants.REDIRECT_QUOTE_SUMMARY;
 	}
 
 }

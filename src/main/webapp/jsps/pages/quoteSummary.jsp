@@ -1,43 +1,45 @@
-<%@include file="../includes/taglib.jsp" %>
-
+<%@include file="../includes/taglib.jsp"%>
 <div class="pageContent">
-	<h4 class="pageHeading">Claim or Loss Details</h4>
+	<h4 class="pageHeading">Quote Summary</h4>
 	<div class="contentRow">
-		<div>
-			<label>Type of Loss?</label>
-		</div>
-		<div>
-			<form:select path="typeOfLoss">
-				<form:option value="">-Select-</form:option>
-				<form:option value="1">Theft</form:option>
-				<form:option value="2">Flood</form:option>
-				<form:option value="3">Vandalism</form:option>
-				<form:option value="3">Fire</form:option>
-			</form:select>
-			<form:errors path="typeOfLoss" cssClass="leftError" />
-		</div>
-		<hr />
+		<hr class="coverageRuler" />
+		<a href="#" class="coverageHeader" data-toggle="collapse" data-target="#dwellingId">Dwelling</a> <span
+			class="spanRight">${screenPO.dwelling}</span>
+		<div id="dwellingId" class="coverageDesc collapse">This is an estimated Dwelling Coverage Limit.</div>
 	</div>
 	<div class="contentRow">
-		<div>
-			<label>Approximate Date of Loss</label>
-		</div>
-		<div>
-			<form:select path="yearOfLoss">
-				<form:option value="">-Select-</form:option>
-				<form:option value="2015">2015</form:option>
-				<form:option value="2014">2014</form:option>
-				<form:option value="2013">2013</form:option>
-				<form:option value="2012">2012</form:option>
-				<form:option value="2011">2011</form:option>
-			</form:select>
-			<form:errors path="yearOfLoss" cssClass="leftError" />
-		</div>
-		<hr />
+		<hr class="coverageRuler" />
+		<a href="#" class="coverageHeader" data-toggle="collapse" data-target="#otherStructuresId">Other Structures</a> <span
+			class="spanRight">${screenPO.otherStructures}</span>
+		<div id="otherStructuresId" class="coverageDesc collapse">Your policy automatically includes a coverage limit
+			equal to 10% of your Dwelling Coverage Limit.</div>
 	</div>
 	<div class="contentRow">
-		<hoq:rowLeft label="Total Amount Paid for Loss"/>
-		<hoq:inputRowRight path="lossAmount"/>
+		<hr class="coverageRuler" />
+		<a href="#" class="coverageHeader" data-toggle="collapse" data-target="#personalPropertyCovId">Personal Property</a> <span
+			class="spanRight">${screenPO.personalPropertyCov}</span>
+		<div id="personalPropertyCovId" class="coverageDesc collapse">Your policy automatically includes a Personal
+			Property Coverage Limit equal to 50% of your Dwelling Coverage Limit.</div>
 	</div>
-</div>    
-		
+	<div class="contentRow">
+		<hr class="coverageRuler" />
+		<a href="#" class="coverageHeader" data-toggle="collapse" data-target="#lossOfUseId">Loss of Use</a> <span
+			class="spanRight">${screenPO.lossOfUse}</span>
+		<div id="lossOfUseId" class="coverageDesc collapse">Your policy automatically includes a coverage limit equal to
+			20% of your Dwelling Coverage Limit. Liability.</div>
+	</div>
+	<div class="contentRow">
+		<hr class="coverageRuler" />
+		<a href="#" class="coverageHeader" data-toggle="collapse" data-target="#medicalPaymentId">Medical Payments</a> <span
+			class="spanRight">${screenPO.medicalPayment}</span>
+		<div id="medicalPaymentId" class="coverageDesc collapse">Our standard policy includes $1,000 in Medical Payments
+			Coverage.</div>
+	</div>
+	<div class="contentRow">
+		<hr class="coverageRuler" />
+		<a href="#" class="coverageHeader" data-toggle="collapse" data-target="#deductibleId">Deductible</a> <span
+			class="spanRight">${screenPO.deductible}</span>
+		<div id="deductibleId" class="coverageDesc collapse">Standard deductible is $1000.</div>
+	</div>
+</div>
+

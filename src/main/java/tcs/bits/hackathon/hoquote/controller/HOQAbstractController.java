@@ -11,7 +11,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -19,6 +18,7 @@ import com.google.gson.Gson;
 
 import tcs.bits.hackathon.hoquote.bean.HOQAbstractBean;
 import tcs.bits.hackathon.hoquote.bean.HOQSessionBean;
+import tcs.bits.hackathon.hoquote.constants.HOQConstants;
 import tcs.bits.hackathon.hoquote.event.EventImpl;
 
 public abstract class HOQAbstractController <T extends HOQAbstractBean> {
@@ -32,9 +32,11 @@ public abstract class HOQAbstractController <T extends HOQAbstractBean> {
 	@Autowired
 	protected EventImpl eventImpl;
 	
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	protected abstract String getPageName();
 	
-	protected String getJsonObject() {
+	protected String getJsonObject(String message) {
 		HOQSessionBean bean = new HOQSessionBean();
 		try {
 			BeanUtils.copyProperties(bean, sessionBean);
@@ -44,8 +46,8 @@ public abstract class HOQAbstractController <T extends HOQAbstractBean> {
 			e.printStackTrace();
 		}
 		String jsonFormat = gson.toJson(bean);
-		Logger logger = LoggerFactory.getLogger(this.getClass());
-		logger.info(jsonFormat);
+		
+		logger.info(message + jsonFormat);
 		return jsonFormat;
 	}
 	
@@ -55,14 +57,14 @@ public abstract class HOQAbstractController <T extends HOQAbstractBean> {
 	
 	protected void sendEvent(String eventName) {
 		buildEventHeaders(eventName);
-		getJsonObject();
-		//eventImpl.putPropertyEvent(getJsonObject(screenPO));
+		getJsonObject(HOQConstants.SEND_EVENT_INITIATED);
+		//eventImpl.putPropertyEvent(getJsonObject(HOQConstants.EVENT_INITIATED));
 	}
 	
 	protected void copyValues(T screenPO) {
 		try {
 			BeanUtils.copyProperties(sessionBean, screenPO);
-			getJsonObject();
+			getJsonObject(HOQConstants.BEAN_COPY_SUCCESSFUL);
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
@@ -73,13 +75,13 @@ public abstract class HOQAbstractController <T extends HOQAbstractBean> {
 	private void buildEventHeaders(String eventName)  {
 		sessionBean.setEvtNm(eventName);
 		sessionBean.setPageName(getPageName());
-		String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSSSSSSS").format(new Date());
+		String timeStamp = new SimpleDateFormat(HOQConstants.TIMESTAMP_FORMAT).format(new Date());
 		sessionBean.setTS(timeStamp);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, params="closeEvent")
-	public final void onExit(Model model, @ModelAttribute("screenPO") T screenPO,HttpServletRequest request) {
-		sendEvent("EQ");
+	public final void onExit(Model model, HttpServletRequest request) {
+		sendEvent(HOQConstants.EXIT_EVENT);
 		request.getSession().invalidate();
 	}
 }

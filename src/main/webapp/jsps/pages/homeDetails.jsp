@@ -71,11 +71,11 @@
 	<div>
 		<form:select path="sqftOfHome">
 			<form:option value="">-Select-</form:option>
-			<form:option value="1">Less than 1000</form:option>
-			<form:option value="2">Between 1001 and 2000</form:option>
-			<form:option value="3">Between 2001 and 3000</form:option>
-			<form:option value="4">Between 3001 and 5000</form:option>
-			<form:option value="5">5000 and above</form:option>
+			<form:option value="500">Less than 1000</form:option>
+			<form:option value="2500">Between 1001 and 2000</form:option>
+			<form:option value="3500">Between 2001 and 3000</form:option>
+			<form:option value="4500">Between 3001 and 5000</form:option>
+			<form:option value="5500">5000 and above</form:option>
 		</form:select>
 		<form:errors path="sqftOfHome" cssClass="leftError" />
 	</div>

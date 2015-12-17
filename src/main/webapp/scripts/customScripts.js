@@ -25,7 +25,6 @@ hoq.navigation = {};
 	
 })(function(){return hoq.navigation;},jQuery);
 
-
 hoq.currentInsurance = {};
 
 (function(module, $, undefined) {
@@ -44,5 +43,4 @@ hoq.currentInsurance = {};
 			$("[name='claimOrLossIndicator']").val("")
 		}
 	}
-
 })(function(){return hoq.currentInsurance;},jQuery);
