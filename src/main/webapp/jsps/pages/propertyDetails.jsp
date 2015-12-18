@@ -5,7 +5,7 @@
 	<div class="contentRow">
 		<hoq:rowLeft label="When would you like your home oplicy to begin?" />
 		<div class="rowRight">
-			<form:input path="effectiveDate" cssClass="date" placeholder="MM/DD/YYYY" size="10"/>
+			<form:input path="effectiveDate" type="date" />
 			<form:errors path="effectiveDate" cssClass="error" />
 		</div>
 		<hr />

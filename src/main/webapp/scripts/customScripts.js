@@ -40,7 +40,7 @@ hoq.currentInsurance = {};
 			$("#currentInsuranceDetailsId").show();
 		}else {
 			$("#currentInsuranceDetailsId").hide();
-			$("[name='claimOrLossIndicator']").val("")
+			$("[name='claimOrLossIndicator']").prop('checked', false);
 		}
 	}
 })(function(){return hoq.currentInsurance;},jQuery);

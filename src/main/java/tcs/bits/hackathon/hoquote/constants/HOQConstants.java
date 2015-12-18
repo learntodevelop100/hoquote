@@ -13,6 +13,9 @@ public interface HOQConstants {
 	public String INITIATED_EVENT = "IQ";
 	public String CALCULATED_EVENT = "CQ";
 	public String EXIT_EVENT = "EQ";
+	public String EVENT_TEMPERATURE_WARM = "WARM";
+	public String EVENT_TEMPERATURE_HOT = "HOT";
+	public String EVENT_TEMPERATURE_URGENT = "URGENT";
 	
 	/* Screen Names */
 	public String CUSTOMER_INFORMATION = "Customer Information";
@@ -20,5 +23,6 @@ public interface HOQConstants {
 	public String CLAIM_OR_LOSS = "Claim or Loss Details";
 	public String PROPERTY_DETAILS = "Property Details";
 	public String QUOTE_SUMMARY = "Quote Summary";
+	public String PAYMENT = "Payment";
 	
 }

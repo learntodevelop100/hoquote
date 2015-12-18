@@ -137,6 +137,11 @@ label[for] {
 	font-weight: normal;
 }
 
+/* Property Details */
+input[type="date"] {
+	line-height: inherit !important;
+}
+
 /* Quote Summary */
 .coverageHeader, .coverageHeader:hover, coverageHeader:focus {
 	text-decoration: none !important;	

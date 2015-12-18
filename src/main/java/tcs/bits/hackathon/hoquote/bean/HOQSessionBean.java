@@ -7,6 +7,8 @@ public class HOQSessionBean {
 	
 	protected String evtNm;
 	
+	protected String EventTemp;
+	
 	protected String ZipCode;
 	
 	protected String PageName;
@@ -91,21 +93,21 @@ public class HOQSessionBean {
 	
 	@Override
 	public String toString() {
-		return "HOQSessionBean [reqId=" + reqId + ", evtNm=" + evtNm + ", ZipCode=" + ZipCode + ", PageName=" + PageName
-				+ ", TS=" + TS + ", firstName=" + firstName + ", lastName=" + lastName + ", dob=" + dob
-				+ ", streetAddress=" + streetAddress + ", city=" + city + ", state=" + state + ", email=" + email
-				+ ", phoneNumber=" + phoneNumber + ", currentInsuranceIndicator=" + currentInsuranceIndicator
-				+ ", currentInsuranceCompany=" + currentInsuranceCompany + ", currentPolicyExpiration="
-				+ currentPolicyExpiration + ", claimOrLossIndicator=" + claimOrLossIndicator + ", typeOfLoss="
-				+ typeOfLoss + ", yearOfLoss=" + yearOfLoss + ", lossAmount=" + lossAmount + ", effectiveDate="
-				+ effectiveDate + ", mortgagePayment=" + mortgagePayment + ", yearOfPurchase=" + yearOfPurchase
-				+ ", yearBuilt=" + yearBuilt + ", homeDescription=" + homeDescription + ", noOfPeople=" + noOfPeople
-				+ ", nonJuvenile=" + nonJuvenile + ", noOfSmokers=" + noOfSmokers + ", petIndicator=" + petIndicator
-				+ ", typeOfHome=" + typeOfHome + ", styleOfHome=" + styleOfHome + ", yearRoofInstalled="
-				+ yearRoofInstalled + ", roofMaterial=" + roofMaterial + ", sqftOfHome=" + sqftOfHome + ", dwelling="
-				+ dwelling + ", otherStructures=" + otherStructures + ", personalPropertyCov=" + personalPropertyCov
-				+ ", lossOfUse=" + lossOfUse + ", medicalPayment=" + medicalPayment + ", deductible=" + deductible
-				+ "]";
+		return "HOQSessionBean [reqId=" + reqId + ", evtNm=" + evtNm + ", EventTemp=" + EventTemp + ", ZipCode="
+				+ ZipCode + ", PageName=" + PageName + ", TS=" + TS + ", firstName=" + firstName + ", lastName="
+				+ lastName + ", dob=" + dob + ", streetAddress=" + streetAddress + ", city=" + city + ", state=" + state
+				+ ", email=" + email + ", phoneNumber=" + phoneNumber + ", currentInsuranceIndicator="
+				+ currentInsuranceIndicator + ", currentInsuranceCompany=" + currentInsuranceCompany
+				+ ", currentPolicyExpiration=" + currentPolicyExpiration + ", claimOrLossIndicator="
+				+ claimOrLossIndicator + ", typeOfLoss=" + typeOfLoss + ", yearOfLoss=" + yearOfLoss + ", lossAmount="
+				+ lossAmount + ", effectiveDate=" + effectiveDate + ", mortgagePayment=" + mortgagePayment
+				+ ", yearOfPurchase=" + yearOfPurchase + ", yearBuilt=" + yearBuilt + ", homeDescription="
+				+ homeDescription + ", noOfPeople=" + noOfPeople + ", nonJuvenile=" + nonJuvenile + ", noOfSmokers="
+				+ noOfSmokers + ", petIndicator=" + petIndicator + ", typeOfHome=" + typeOfHome + ", styleOfHome="
+				+ styleOfHome + ", yearRoofInstalled=" + yearRoofInstalled + ", roofMaterial=" + roofMaterial
+				+ ", sqftOfHome=" + sqftOfHome + ", dwelling=" + dwelling + ", otherStructures=" + otherStructures
+				+ ", personalPropertyCov=" + personalPropertyCov + ", lossOfUse=" + lossOfUse + ", medicalPayment="
+				+ medicalPayment + ", deductible=" + deductible + "]";
 	}
 
 	public String getFirstName() {
@@ -186,6 +188,14 @@ public class HOQSessionBean {
 
 	public void setEvtNm(String evtNm) {
 		this.evtNm = evtNm;
+	}
+
+	public String getEventTemp() {
+		return EventTemp;
+	}
+
+	public void setEventTemp(String eventTemp) {
+		EventTemp = eventTemp;
 	}
 
 	public String getZipCode() {

@@ -30,7 +30,6 @@ public class PersonalInformationController extends HOQAbstractController<Persona
 		PersonalInforamtionPO personalInforamtionPO = new PersonalInforamtionPO();
 		sessionBean.setReqId(getRequestId());
 		personalInforamtionPO.setState(request.getParameter(HOQConstants.STATE));
-		sendEvent(HOQConstants.INITIATED_EVENT);
 		model.addAttribute(HOQConstants.SCREEN_PO, personalInforamtionPO);
 		return NavigationConstants.PERSONAL_INFORMATION_SCREEN;
 	}
@@ -39,6 +38,7 @@ public class PersonalInformationController extends HOQAbstractController<Persona
 	public String onContinue(Model model,
 			@Valid @ModelAttribute(HOQConstants.SCREEN_PO) PersonalInforamtionPO personalInforamtionPO, BindingResult result) {
 		copyValues(personalInforamtionPO);
+		sendEvent(HOQConstants.INITIATED_EVENT);
 		if (result.hasErrors()) {
 			return NavigationConstants.PERSONAL_INFORMATION_SCREEN;
 		}

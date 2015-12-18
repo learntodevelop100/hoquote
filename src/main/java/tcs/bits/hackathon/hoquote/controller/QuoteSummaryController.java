@@ -34,7 +34,7 @@ public class QuoteSummaryController extends HOQAbstractController<QuoteSummaryPO
 
 	@RequestMapping(method = RequestMethod.POST)
 	public String onContinue(Model model) {
-		return NavigationConstants.REDIRECT_PAYMENT;
+		return NavigationConstants.QUOTE_SUMMARY_SCREEN;
 	}
 	
 	private QuoteSummaryPO calculateQuote() {

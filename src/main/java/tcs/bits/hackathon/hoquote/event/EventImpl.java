@@ -26,7 +26,6 @@ public class EventImpl {
 
 			logger.info("Input Message : {}", msg);
 			
-			System.out.println("Inside putEvent");
 			String output = "Success";
 			int status = 200;
 
@@ -48,11 +47,11 @@ public class EventImpl {
 				
 				producer.send(data);
 				producer.close();
+				logger.info("Event Sent Susscessfully");
 			
 			} catch (Exception ex) {
 				
-				logger.info("Exception Message - {} ", ex.getMessage());
-				System.out.println("Inside Exception");
+				logger.info("Exception occurred for event - {} \n {}", msg, ex.getMessage());
 				ex.printStackTrace();
 				producer.close();
 				output = "Failed";
@@ -63,8 +62,6 @@ public class EventImpl {
 		}
 
 		public Response generateRequestId() {
-			
-			logger.info("Inside generate request id");
 			
 			//TimeBasedGenerator gen = Generators.timeBasedGenerator(EthernetAddress.fromInterface());
 			//UUID uuid = gen.generate();
@@ -80,8 +77,7 @@ public class EventImpl {
 			do {
 			
 				uuid = uuidToBase64(Generators.randomBasedGenerator().generate());
-				
-				System.out.println("uuid - " + uuid);
+				logger.info("RequestId Generated: {}", uuid );
 				
 				if (uuid.contains("-") || uuid.contains("_")) {
 					flag = true;

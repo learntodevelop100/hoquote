@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -21,21 +22,42 @@ import tcs.bits.hackathon.hoquote.bean.HOQSessionBean;
 import tcs.bits.hackathon.hoquote.constants.HOQConstants;
 import tcs.bits.hackathon.hoquote.event.EventImpl;
 
-public abstract class HOQAbstractController <T extends HOQAbstractBean> {
-	
+public abstract class HOQAbstractController<T extends HOQAbstractBean> {
+
 	@Autowired
 	protected HOQSessionBean sessionBean;
-	
+
 	@Autowired
-	protected Gson gson; 
-	
+	protected Gson gson;
+
 	@Autowired
 	protected EventImpl eventImpl;
-	
+
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
-	
+
 	protected abstract String getPageName();
-	
+
+	protected String getRequestId() {
+		return eventImpl.generateUUID();
+	}
+
+	protected void copyValues(T screenPO) {
+		try {
+			BeanUtils.copyProperties(sessionBean, screenPO);
+			/* getJsonObject(HOQConstants.BEAN_COPY_SUCCESSFUL); */
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		}
+	}
+
+	protected void sendEvent(String eventName) {
+		buildEventHeaders(eventName);
+		/* getJsonObject(HOQConstants.SEND_EVENT_INITIATED); */
+		eventImpl.putPropertyEvent(getJsonObject(HOQConstants.SEND_EVENT_INITIATED));
+	}
+
 	protected String getJsonObject(String message) {
 		HOQSessionBean bean = new HOQSessionBean();
 		try {
@@ -46,42 +68,30 @@ public abstract class HOQAbstractController <T extends HOQAbstractBean> {
 			e.printStackTrace();
 		}
 		String jsonFormat = gson.toJson(bean);
-		
+
 		logger.info(message + jsonFormat);
 		return jsonFormat;
 	}
-	
-	protected String getRequestId() {
-		return eventImpl.generateUUID();
-	}
-	
-	protected void sendEvent(String eventName) {
-		buildEventHeaders(eventName);
-		getJsonObject(HOQConstants.SEND_EVENT_INITIATED);
-		//eventImpl.putPropertyEvent(getJsonObject(HOQConstants.EVENT_INITIATED));
-	}
-	
-	protected void copyValues(T screenPO) {
-		try {
-			BeanUtils.copyProperties(sessionBean, screenPO);
-			getJsonObject(HOQConstants.BEAN_COPY_SUCCESSFUL);
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		} catch (InvocationTargetException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	private void buildEventHeaders(String eventName)  {
+
+	private void buildEventHeaders(String eventName) {
 		sessionBean.setEvtNm(eventName);
 		sessionBean.setPageName(getPageName());
 		String timeStamp = new SimpleDateFormat(HOQConstants.TIMESTAMP_FORMAT).format(new Date());
 		sessionBean.setTS(timeStamp);
 	}
-	
-	@RequestMapping(method = RequestMethod.POST, params="closeEvent")
-	public final void onExit(Model model, HttpServletRequest request) {
+
+	@RequestMapping(method = RequestMethod.POST, params = "closeEvent")
+	public final void onExit(Model model, @ModelAttribute(HOQConstants.SCREEN_PO) T screenPO,
+			HttpServletRequest request) {
+		if (HOQConstants.PAYMENT.equalsIgnoreCase(getPageName())) {
+			sessionBean.setEventTemp(HOQConstants.EVENT_TEMPERATURE_URGENT);
+		} else if (HOQConstants.QUOTE_SUMMARY.equalsIgnoreCase(getPageName())) {
+			sessionBean.setEventTemp(HOQConstants.EVENT_TEMPERATURE_HOT);
+		} else {
+			sessionBean.setEventTemp(HOQConstants.EVENT_TEMPERATURE_WARM);
+		}
 		sendEvent(HOQConstants.EXIT_EVENT);
+
 		request.getSession().invalidate();
 	}
 }
