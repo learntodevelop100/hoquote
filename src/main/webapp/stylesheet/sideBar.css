@@ -43,7 +43,7 @@
 }
 
 /* Media Query for screen size less than 580px */
-@media only screen and (max-width: 580px), only screen and (max-device-width: 480px) {
+@media only screen and (max-width: 1430px), only screen and (max-device-width: 480px) {
 	#contactModule p, #quoteModule p, .moduleHeading {
 		font-size: 14px;
 	}

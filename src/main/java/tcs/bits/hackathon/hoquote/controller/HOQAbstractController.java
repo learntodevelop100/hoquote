@@ -44,7 +44,7 @@ public abstract class HOQAbstractController<T extends HOQAbstractBean> {
 	protected void copyValues(T screenPO) {
 		try {
 			BeanUtils.copyProperties(sessionBean, screenPO);
-			/* getJsonObject(HOQConstants.BEAN_COPY_SUCCESSFUL); */
+			getJsonObject(HOQConstants.BEAN_COPY_SUCCESSFUL); 
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
@@ -54,8 +54,8 @@ public abstract class HOQAbstractController<T extends HOQAbstractBean> {
 
 	protected void sendEvent(String eventName) {
 		buildEventHeaders(eventName);
-		/* getJsonObject(HOQConstants.SEND_EVENT_INITIATED); */
-		eventImpl.putPropertyEvent(getJsonObject(HOQConstants.SEND_EVENT_INITIATED));
+		getJsonObject(HOQConstants.SEND_EVENT_INITIATED); 
+		//eventImpl.putPropertyEvent(getJsonObject(HOQConstants.SEND_EVENT_INITIATED));
 	}
 
 	protected String getJsonObject(String message) {
@@ -83,7 +83,7 @@ public abstract class HOQAbstractController<T extends HOQAbstractBean> {
 	@RequestMapping(method = RequestMethod.POST, params = "closeEvent")
 	public final void onExit(Model model, @ModelAttribute(HOQConstants.SCREEN_PO) T screenPO,
 			HttpServletRequest request) {
-		if (HOQConstants.PAYMENT.equalsIgnoreCase(getPageName())) {
+		if (HOQConstants.PAYMENT_DETAILS.equalsIgnoreCase(getPageName())) {
 			sessionBean.setEventTemp(HOQConstants.EVENT_TEMPERATURE_URGENT);
 		} else if (HOQConstants.QUOTE_SUMMARY.equalsIgnoreCase(getPageName())) {
 			sessionBean.setEventTemp(HOQConstants.EVENT_TEMPERATURE_HOT);

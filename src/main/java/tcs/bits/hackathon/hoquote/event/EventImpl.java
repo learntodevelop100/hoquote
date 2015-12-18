@@ -24,8 +24,6 @@ public class EventImpl {
 
 		public Response putPropertyEvent(String msg) {
 
-			logger.info("Input Message : {}", msg);
-			
 			String output = "Success";
 			int status = 200;
 
@@ -44,6 +42,7 @@ public class EventImpl {
 
 				KeyedMessage<String, String> data = new KeyedMessage<String, String>(
 						"pqEvent", msg);
+				logger.info("Sending Event : {}", msg);
 				
 				producer.send(data);
 				producer.close();
@@ -51,7 +50,7 @@ public class EventImpl {
 			
 			} catch (Exception ex) {
 				
-				logger.info("Exception occurred for event - {} \n {}", msg, ex.getMessage());
+				logger.info("Exception occurred for event - {}", msg);
 				ex.printStackTrace();
 				producer.close();
 				output = "Failed";

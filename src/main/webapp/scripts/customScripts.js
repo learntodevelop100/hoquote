@@ -44,3 +44,43 @@ hoq.currentInsurance = {};
 		}
 	}
 })(function(){return hoq.currentInsurance;},jQuery);
+
+
+hoq.claimOrLoss = {};
+
+(function(module, $, undefined) {
+	module().init = function() {
+		module()._bindEvents();
+	}
+	module()._bindEvents = function() {
+		$("#lossAmount").blur(function() {
+			$(this).formatCurrency({roundToDecimalPlace:-2});
+		});
+	}
+})(function(){return hoq.claimOrLoss;},jQuery);
+
+hoq.payment = {};
+
+(function(module, $, undefined) {
+	module().init = function() {
+		module()._bindEvents();
+	}
+	module()._bindEvents = function() {
+		$("#continueButtonId").text("Pay Now");
+		$("input[name=paymentAmount]").blur(function() {
+			$(this).formatCurrency();
+		});
+		
+	}
+})(function(){return hoq.payment;},jQuery);
+
+hoq.thankYou = {};
+
+(function(module, $, undefined) {
+	module().init = function() {
+		module()._bindEvents();
+	}
+	module()._bindEvents = function() {
+		$("#continueButtonId").hide();
+	}
+})(function(){return hoq.thankYou;},jQuery);

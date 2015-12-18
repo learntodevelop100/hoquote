@@ -65,6 +65,7 @@ body {
     font-weight: bold;
     color: #154995;
     padding-bottom: 3%;
+    padding-top: 3%;
 }
 
 .contentRow {
@@ -85,7 +86,7 @@ body {
 	height: 30px;
     float: right;
     margin-right: 10%;
-    width: 90px;
+    width: auto;
     background-color: #006dcc;
     border-color: #0c69ae;
     color: #fff;
@@ -94,22 +95,6 @@ body {
 	border-radius: 10px; /* future proofing */
 	-khtml-border-radius: 10px; /* for old Konqueror browsers */
 }
-
-#closeButtonId {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-	font-weight: bold;
-	height: 30px;
-    float: left;
-    margin-left: 5%;
-    width: 90px;
-    border-color: #adadad;
-    color: #666;
-    -moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-	border-radius: 10px; /* future proofing */
-	-khtml-border-radius: 10px; /* for old Konqueror browsers */
-}
-
 
 .error {
 	color: red;
@@ -161,7 +146,7 @@ input[type="date"] {
 }
 
 /* Media Query for screen size less than 580px */
-@media only screen and (max-width: 580px), only screen and (max-device-width: 480px) {
+@media only screen and (max-width: 1430px), only screen and (max-device-width: 480px) {
 	#navigationHeader ul li:not(.has-sub), #sideBar_wrapper {
 		display: none;		
 	}

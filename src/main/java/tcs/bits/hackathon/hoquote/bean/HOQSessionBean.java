@@ -89,6 +89,25 @@ public class HOQSessionBean {
 	private String medicalPayment;
 	
 	private String deductible;
+	
+	/*Payment Screen*/
+	private String addressLine1;
+
+	private String apartmentNo;
+
+	private String billingCity;
+	
+	private String billingState;
+	
+	private String billingZipcode;
+	
+	private String cardNumber;
+	
+	private String cardExpiry;
+	
+	private String cardCVC;
+	
+	private String paymentAmount;
 
 	
 	@Override
@@ -107,7 +126,10 @@ public class HOQSessionBean {
 				+ styleOfHome + ", yearRoofInstalled=" + yearRoofInstalled + ", roofMaterial=" + roofMaterial
 				+ ", sqftOfHome=" + sqftOfHome + ", dwelling=" + dwelling + ", otherStructures=" + otherStructures
 				+ ", personalPropertyCov=" + personalPropertyCov + ", lossOfUse=" + lossOfUse + ", medicalPayment="
-				+ medicalPayment + ", deductible=" + deductible + "]";
+				+ medicalPayment + ", deductible=" + deductible + ", addressLine1=" + addressLine1 + ", apartmentNo="
+				+ apartmentNo + ", billingCity=" + billingCity + ", billingState=" + billingState + ", billingZipcode="
+				+ billingZipcode + ", cardNumber=" + cardNumber + ", cardExpiry=" + cardExpiry + ", cardCVC=" + cardCVC
+				+ ", paymentAmount=" + paymentAmount + "]";
 	}
 
 	public String getFirstName() {
@@ -436,5 +458,77 @@ public class HOQSessionBean {
 
 	public void setDeductible(String deductible) {
 		this.deductible = deductible;
+	}
+
+	public String getAddressLine1() {
+		return addressLine1;
+	}
+
+	public void setAddressLine1(String addressLine1) {
+		this.addressLine1 = addressLine1;
+	}
+
+	public String getApartmentNo() {
+		return apartmentNo;
+	}
+
+	public void setApartmentNo(String apartmentNo) {
+		this.apartmentNo = apartmentNo;
+	}
+
+	public String getBillingCity() {
+		return billingCity;
+	}
+
+	public void setBillingCity(String billingCity) {
+		this.billingCity = billingCity;
+	}
+
+	public String getBillingState() {
+		return billingState;
+	}
+
+	public void setBillingState(String billingState) {
+		this.billingState = billingState;
+	}
+
+	public String getBillingZipcode() {
+		return billingZipcode;
+	}
+
+	public void setBillingZipcode(String billingZipcode) {
+		this.billingZipcode = billingZipcode;
+	}
+
+	public String getCardNumber() {
+		return cardNumber;
+	}
+
+	public void setCardNumber(String cardNumber) {
+		this.cardNumber = cardNumber;
+	}
+
+	public String getCardExpiry() {
+		return cardExpiry;
+	}
+
+	public void setCardExpiry(String cardExpiry) {
+		this.cardExpiry = cardExpiry;
+	}
+
+	public String getCardCVC() {
+		return cardCVC;
+	}
+
+	public void setCardCVC(String cardCVC) {
+		this.cardCVC = cardCVC;
+	}
+
+	public String getPaymentAmount() {
+		return paymentAmount;
+	}
+
+	public void setPaymentAmount(String paymentAmount) {
+		this.paymentAmount = paymentAmount;
 	}
 }

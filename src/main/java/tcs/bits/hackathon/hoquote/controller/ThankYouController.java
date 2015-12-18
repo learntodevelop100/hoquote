@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import tcs.bits.hackathon.hoquote.bean.PaymentPO;
 import tcs.bits.hackathon.hoquote.bean.PropertyDetailsPO;
+import tcs.bits.hackathon.hoquote.constants.HOQConstants;
 import tcs.bits.hackathon.hoquote.constants.NavigationConstants;
 
 @Controller
@@ -15,25 +16,13 @@ public class ThankYouController extends HOQAbstractController<PropertyDetailsPO>
 
 	@Override
 	protected String getPageName() {
-		return "Thank You";
+		return HOQConstants.THANK_YOU;
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String onLoad(Model model) {
 		PaymentPO paymentPO = new PaymentPO();
-		model.addAttribute("screenPO", paymentPO);
+		model.addAttribute(HOQConstants.SCREEN_PO, paymentPO);
 		return NavigationConstants.THANK_YOU_SCREEN;
 	}
-
-/*	@RequestMapping(method = RequestMethod.POST)
-	public String onContinue(Model model, @Valid @ModelAttribute("screenPO") PaymentPO paymentPO,
-			BindingResult result) {
-		if(result.hasErrors()) {
-			return NavigationConstants.THANK_YOU_SCREEN;
-		}
-		Logger logger = LoggerFactory.getLogger(ThankYouController.class);
-		logger.info(getJsonObject());
-		return NavigationConstants.REDIRECT_THANK_YOU;
-	}*/
-
 }

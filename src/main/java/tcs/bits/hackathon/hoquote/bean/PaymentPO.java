@@ -5,41 +5,102 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class PaymentPO extends HOQAbstractBean {
 
 	@NotEmpty
-	private String typeOfLoss;
+	private String addressLine1;
 
 	@NotEmpty
-	private String yearOfLoss;
+	private String apartmentNo;
 
 	@NotEmpty
-	private String lossAmount;
+	private String billingCity;
+	
+	@NotEmpty
+	private String billingState;
+	
+	@NotEmpty
+	private String billingZipcode;
+	
+	@NotEmpty
+	private String cardNumber;
+	
+	@NotEmpty
+	private String cardExpiry;
+	
+	@NotEmpty
+	private String cardCVC;
+	
+	@NotEmpty
+	private String paymentAmount;
 
-	@Override
-	public String toString() {
-		return "ClaimOrLoss [typeOfLoss=" + typeOfLoss + ", yearOfLoss=" + yearOfLoss + ", lossAmount=" + lossAmount
-				+ "]";
+	public String getAddressLine1() {
+		return addressLine1;
 	}
 
-	public String getTypeOfLoss() {
-		return typeOfLoss;
+	public void setAddressLine1(String addressLine1) {
+		this.addressLine1 = addressLine1;
 	}
 
-	public void setTypeOfLoss(String typeOfLoss) {
-		this.typeOfLoss = typeOfLoss;
+	public String getApartmentNo() {
+		return apartmentNo;
 	}
 
-	public String getLossAmount() {
-		return lossAmount;
+	public void setApartmentNo(String apartmentNo) {
+		this.apartmentNo = apartmentNo;
 	}
 
-	public void setLossAmount(String lossAmount) {
-		this.lossAmount = lossAmount;
+	public String getBillingCity() {
+		return billingCity;
 	}
 
-	public String getYearOfLoss() {
-		return yearOfLoss;
+	public void setBillingCity(String billingCity) {
+		this.billingCity = billingCity;
 	}
 
-	public void setYearOfLoss(String yearOfLoss) {
-		this.yearOfLoss = yearOfLoss;
+	public String getBillingState() {
+		return billingState;
 	}
+
+	public void setBillingState(String billingState) {
+		this.billingState = billingState;
+	}
+
+	public String getBillingZipcode() {
+		return billingZipcode;
+	}
+
+	public void setBillingZipcode(String billingZipcode) {
+		this.billingZipcode = billingZipcode;
+	}
+
+	public String getCardNumber() {
+		return cardNumber;
+	}
+
+	public void setCardNumber(String cardNumber) {
+		this.cardNumber = cardNumber;
+	}
+
+	public String getCardExpiry() {
+		return cardExpiry;
+	}
+
+	public void setCardExpiry(String cardExpiry) {
+		this.cardExpiry = cardExpiry;
+	}
+
+	public String getCardCVC() {
+		return cardCVC;
+	}
+
+	public void setCardCVC(String cardCVC) {
+		this.cardCVC = cardCVC;
+	}
+
+	public String getPaymentAmount() {
+		return paymentAmount;
+	}
+
+	public void setPaymentAmount(String paymentAmount) {
+		this.paymentAmount = paymentAmount;
+	}
+
 }

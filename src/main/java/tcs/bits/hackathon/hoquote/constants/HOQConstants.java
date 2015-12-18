@@ -23,6 +23,6 @@ public interface HOQConstants {
 	public String CLAIM_OR_LOSS = "Claim or Loss Details";
 	public String PROPERTY_DETAILS = "Property Details";
 	public String QUOTE_SUMMARY = "Quote Summary";
-	public String PAYMENT = "Payment";
-	
+	public String PAYMENT_DETAILS = "Payment Details";
+	public String THANK_YOU = "Thank You";
 }
