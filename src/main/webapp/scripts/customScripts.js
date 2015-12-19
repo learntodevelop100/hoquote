@@ -1,9 +1,10 @@
 var hoq = hoq || {};
+var postEnabled = false;
 
 hoq.navigation = {};
 
 (function(module, $, undefined) {
-	var postEnabled = false;
+	
 	module().init = function() {
 		postEnabled = false;
 		module()._bindEvents();
@@ -94,5 +95,6 @@ hoq.thankYou = {};
 	}
 	module()._bindEvents = function() {
 		$("#continueButtonId").hide();
+		postEnabled = true;
 	}
 })(function(){return hoq.thankYou;},jQuery);
