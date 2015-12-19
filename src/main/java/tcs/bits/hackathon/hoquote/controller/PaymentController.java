@@ -35,6 +35,7 @@ public class PaymentController extends HOQAbstractController<PaymentPO> {
 		if(result.hasErrors()) {
 			return NavigationConstants.PAYMENT_SCREEN;
 		}
+		sendEvent(HOQConstants.PAYMENT_EVENT);
 		copyValues(paymentPO);
 		return NavigationConstants.REDIRECT_THANK_YOU;
 	}

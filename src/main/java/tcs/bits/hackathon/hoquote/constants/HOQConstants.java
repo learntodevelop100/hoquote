@@ -13,6 +13,7 @@ public interface HOQConstants {
 	public String INITIATED_EVENT = "IQ";
 	public String CALCULATED_EVENT = "CQ";
 	public String EXIT_EVENT = "EQ";
+	public String PAYMENT_EVENT = "SA";
 	public String EVENT_TEMPERATURE_WARM = "WARM";
 	public String EVENT_TEMPERATURE_HOT = "HOT";
 	public String EVENT_TEMPERATURE_URGENT = "URGENT";

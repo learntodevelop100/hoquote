@@ -59,6 +59,18 @@ hoq.claimOrLoss = {};
 	}
 })(function(){return hoq.claimOrLoss;},jQuery);
 
+hoq.quoteSummary = {};
+
+(function(module, $, undefined) {
+	module().init = function() {
+		module()._bindEvents();
+	}
+	module()._bindEvents = function() {
+		$(".spanRight").formatCurrency({roundToDecimalPlace:-2});
+		$(".plan-tier .plan-price").formatCurrency({roundToDecimalPlace:-2, symbol:''});
+	}
+})(function(){return hoq.quoteSummary;},jQuery);
+
 hoq.payment = {};
 
 (function(module, $, undefined) {

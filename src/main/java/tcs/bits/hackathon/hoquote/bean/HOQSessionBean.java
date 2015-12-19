@@ -80,6 +80,8 @@ public class HOQSessionBean {
 	/*Quote Summary*/
 	private String dwelling;
 	
+	private String premium;
+	
 	private String otherStructures;
 	
 	private String personalPropertyCov;
@@ -124,12 +126,12 @@ public class HOQSessionBean {
 				+ homeDescription + ", noOfPeople=" + noOfPeople + ", nonJuvenile=" + nonJuvenile + ", noOfSmokers="
 				+ noOfSmokers + ", petIndicator=" + petIndicator + ", typeOfHome=" + typeOfHome + ", styleOfHome="
 				+ styleOfHome + ", yearRoofInstalled=" + yearRoofInstalled + ", roofMaterial=" + roofMaterial
-				+ ", sqftOfHome=" + sqftOfHome + ", dwelling=" + dwelling + ", otherStructures=" + otherStructures
-				+ ", personalPropertyCov=" + personalPropertyCov + ", lossOfUse=" + lossOfUse + ", medicalPayment="
-				+ medicalPayment + ", deductible=" + deductible + ", addressLine1=" + addressLine1 + ", apartmentNo="
-				+ apartmentNo + ", billingCity=" + billingCity + ", billingState=" + billingState + ", billingZipcode="
-				+ billingZipcode + ", cardNumber=" + cardNumber + ", cardExpiry=" + cardExpiry + ", cardCVC=" + cardCVC
-				+ ", paymentAmount=" + paymentAmount + "]";
+				+ ", sqftOfHome=" + sqftOfHome + ", dwelling=" + dwelling + ", premium=" + premium
+				+ ", otherStructures=" + otherStructures + ", personalPropertyCov=" + personalPropertyCov
+				+ ", lossOfUse=" + lossOfUse + ", medicalPayment=" + medicalPayment + ", deductible=" + deductible
+				+ ", addressLine1=" + addressLine1 + ", apartmentNo=" + apartmentNo + ", billingCity=" + billingCity
+				+ ", billingState=" + billingState + ", billingZipcode=" + billingZipcode + ", cardNumber=" + cardNumber
+				+ ", cardExpiry=" + cardExpiry + ", cardCVC=" + cardCVC + ", paymentAmount=" + paymentAmount + "]";
 	}
 
 	public String getFirstName() {
@@ -418,6 +420,14 @@ public class HOQSessionBean {
 
 	public void setDwelling(String dwelling) {
 		this.dwelling = dwelling;
+	}
+	
+	public String getPremium() {
+		return premium;
+	}
+
+	public void setPremium(String premium) {
+		this.premium = premium;
 	}
 
 	public String getOtherStructures() {

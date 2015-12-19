@@ -39,17 +39,19 @@ public class QuoteSummaryController extends HOQAbstractController<QuoteSummaryPO
 	
 	private QuoteSummaryPO calculateQuote() {
 		QuoteSummaryPO quoteSummaryPO = new QuoteSummaryPO();
-		double sqft, dwelling, otherStructures, personalPropertyCov, lossOfUse; 
+		double sqft, dwelling, premium, otherStructures, personalPropertyCov, lossOfUse; 
 		if (StringUtils.isNotBlank(sessionBean.getSqftOfHome())) {
 			sqft = Double.parseDouble(sessionBean.getSqftOfHome());
 		} else {
 			sqft = 1500;
 		}
 		dwelling = sqft * 50;
+		premium = dwelling * .0075/12;
 		otherStructures = dwelling * 10/100;
 		personalPropertyCov = dwelling * 50/100;
 		lossOfUse = dwelling * 20/100;
 		quoteSummaryPO.setDwelling(Double.toString(dwelling));
+		quoteSummaryPO.setPremium(Double.toString(premium));
 		quoteSummaryPO.setOtherStructures(Double.toString(otherStructures));
 		quoteSummaryPO.setPersonalPropertyCov(Double.toString(personalPropertyCov));
 		quoteSummaryPO.setLossOfUse(Double.toString(lossOfUse));

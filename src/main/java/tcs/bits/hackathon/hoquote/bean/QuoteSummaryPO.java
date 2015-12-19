@@ -4,6 +4,8 @@ public class QuoteSummaryPO extends HOQAbstractBean {
 
 	private String dwelling;
 	
+	private String premium;
+	
 	private String otherStructures;
 	
 	private String personalPropertyCov;
@@ -13,13 +15,21 @@ public class QuoteSummaryPO extends HOQAbstractBean {
 	private String medicalPayment;
 	
 	private String deductible;
-
+	
 	public String getDwelling() {
 		return dwelling;
 	}
 
 	public void setDwelling(String dwelling) {
 		this.dwelling = dwelling;
+	}
+
+	public String getPremium() {
+		return premium;
+	}
+
+	public void setPremium(String premium) {
+		this.premium = premium;
 	}
 
 	public String getOtherStructures() {

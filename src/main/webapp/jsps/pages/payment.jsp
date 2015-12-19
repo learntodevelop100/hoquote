@@ -2,7 +2,7 @@
 
 <div class="pageContent">
 	<h4 class="pageHeading">Payment Details</h4>
-	<div class="container" style="margin: 50px;">
+	<div class="container" >
 		<div class="row">
 			<!-- Billing Address -->
 			<div class="col-xs-12 col-md-4 billingAddress">

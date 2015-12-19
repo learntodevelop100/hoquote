@@ -13,7 +13,6 @@
 <link rel="stylesheet" href="stylesheet/sideBar.css">
 <link rel="stylesheet" href="stylesheet/bootstrap.css">
 <link rel="stylesheet" href="stylesheet/paymentReset.css">
-<!-- <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'> -->
 <link rel="stylesheet" href="stylesheet/paymentStyle.css">
 </head>
 <body>

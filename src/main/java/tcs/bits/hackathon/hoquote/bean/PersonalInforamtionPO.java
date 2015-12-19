@@ -1,7 +1,5 @@
 package tcs.bits.hackathon.hoquote.bean;
 
-import javax.validation.constraints.Pattern;
-
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -33,7 +31,6 @@ public class PersonalInforamtionPO extends HOQAbstractBean {
 	private String email;
 
 	@NotEmpty
-	@Pattern(regexp = "(^$|[0-9]{10})")
 	private String phoneNumber;
 	
 	public String getFirstName() {
